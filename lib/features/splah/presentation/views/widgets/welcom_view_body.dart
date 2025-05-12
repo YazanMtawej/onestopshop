@@ -1,12 +1,38 @@
 import 'package:flutter/material.dart';
+import 'package:onestopshop/assets.dart';
+import 'package:onestopshop/features/splah/presentation/views/widgets/custom_button.dart';
 
 class WelcomViewBody extends StatelessWidget {
   const WelcomViewBody({super.key});
 
   @override
   Widget build(BuildContext context) {
-    return const SafeArea(child: Scaffold(
-      body: Center(child: Text("Welcom")),
-    ),);
+    return SafeArea(
+      child: Scaffold(
+        body: Column(
+          mainAxisAlignment: MainAxisAlignment.start,
+          crossAxisAlignment: CrossAxisAlignment.stretch,
+          children: [
+            Image.asset(AssetsData.logo),
+            SizedBox(height: 33),
+            const Text(
+              textAlign: TextAlign.center,
+              "Welcom to the OneStopShop",
+              style: TextStyle(fontSize: 24, fontWeight: FontWeight.bold),
+            ),
+            SizedBox(height: 12),
+            const Text(textAlign: TextAlign.center, ''' 
+    We offer you an electronic products market 
+      that contains the best types of products 
+      at the cheapest prices ''', style: TextStyle(fontSize: 17)),
+
+            SizedBox(height: 150),
+            CustomButton(
+              onTap: (){},
+              text: 'Next',),
+          ],
+        ),
+      ),
+    );
   }
 }
