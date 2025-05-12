@@ -1,5 +1,9 @@
 import 'package:flutter/material.dart';
+import 'package:get/get_navigation/get_navigation.dart';
+import 'package:get/utils.dart';
 import 'package:onestopshop/assets.dart';
+import 'package:onestopshop/constents.dart';
+import 'package:onestopshop/features/splah/presentation/views/welcom_view.dart';
 import 'package:onestopshop/features/splah/presentation/views/widgets/sliding_text.dart';
 
 class SplashViewBody extends StatefulWidget {
@@ -9,7 +13,8 @@ class SplashViewBody extends StatefulWidget {
   State<SplashViewBody> createState() => _SplashViewBodyState();
 }
 
-class _SplashViewBodyState extends State<SplashViewBody> with SingleTickerProviderStateMixin{
+class _SplashViewBodyState extends State<SplashViewBody>
+    with SingleTickerProviderStateMixin {
   late AnimationController animationController;
   late Animation<Offset> slidingAnimation;
 
@@ -18,12 +23,12 @@ class _SplashViewBodyState extends State<SplashViewBody> with SingleTickerProvid
     super.initState();
 
     initSlidingAnimation();
-  
+    navigateToWelcomView();
   }
+
 
   @override
   void dispose() {
-    
     super.dispose();
     animationController.dispose();
   }
@@ -47,19 +52,27 @@ class _SplashViewBodyState extends State<SplashViewBody> with SingleTickerProvid
       ),
     );
   }
-  
+
   void initSlidingAnimation() {
-    
     animationController = AnimationController(
       vsync: this,
-      duration: const Duration(seconds:  2),
+      duration: const Duration(seconds: 2),
     );
     slidingAnimation = Tween<Offset>(
       begin: const Offset(0, 10),
-      end:  Offset.zero,
+      end: Offset.zero,
     ).animate(animationController);
     animationController.forward();
-      
   }
-}
 
+  void navigateToWelcomView() {
+     Future.delayed(const Duration(seconds: 3), () {
+      Get.to(
+        () => const WelcomView(),
+        transition: Transition.fade,
+        duration: kTranstionDuration,
+      );
+    });
+  }
+
+}
