@@ -1,6 +1,10 @@
 import 'package:flutter/material.dart';
+import 'package:get/get_navigation/get_navigation.dart';
+import 'package:get/utils.dart';
 import 'package:onestopshop/assets.dart';
-import 'package:onestopshop/features/splah/presentation/views/widgets/custom_button.dart';
+import 'package:onestopshop/constents.dart';
+import 'package:onestopshop/features/Acount/presentation/views/login_view.dart';
+import 'package:onestopshop/core/urit/widgets/custom_button.dart';
 
 class WelcomViewBody extends StatelessWidget {
   const WelcomViewBody({super.key});
@@ -28,8 +32,15 @@ class WelcomViewBody extends StatelessWidget {
 
             SizedBox(height: 150),
             CustomButton(
-              onTap: (){},
-              text: 'Next',),
+              onTap: () {
+                Get.to(
+                  () => const LoginView(),
+                  transition: Transition.rightToLeft,
+                  duration: kTranstionDuration,
+                );
+              },
+              text: 'Next',
+            ),
           ],
         ),
       ),

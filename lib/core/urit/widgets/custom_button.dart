@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:onestopshop/constents.dart';
 
 
 // ignore: must_be_immutable
@@ -17,7 +18,7 @@ const  CustomButton({super.key, this.onTap, required this.text});
           width: MediaQuery.of(context).size.width,
           height: 55,
           decoration: BoxDecoration(
-              color: Colors.deepOrange, borderRadius: BorderRadius.circular(16)),
+              color: kButtonColor, borderRadius: BorderRadius.circular(16)),
           child: Center(
             child:  Text(
               text,
