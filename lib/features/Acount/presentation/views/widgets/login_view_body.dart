@@ -1,8 +1,12 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
+import 'package:get/get_core/src/get_main.dart';
+import 'package:get/get_navigation/get_navigation.dart';
 import 'package:onestopshop/constents.dart';
+import 'package:onestopshop/features/Acount/presentation/views/sigin_view.dart';
 import 'package:onestopshop/features/Acount/presentation/views/widgets/text_field_email.dart';
 import 'package:onestopshop/features/Acount/presentation/views/widgets/text_field_password.dart';
+import 'package:onestopshop/features/Home/data/presentation/views/home_view.dart';
 
 class LoginViewBody extends StatelessWidget {
   const LoginViewBody({super.key});
@@ -38,7 +42,9 @@ class LoginViewBody extends StatelessWidget {
 
                     const SizedBox(height: 3),
                     ElevatedButton(
-                      onPressed: () {},
+                      onPressed: () {
+                         Get.to(()=> HomeView(),transition: Transition.leftToRight,duration: kTranstionDuration);
+                      },
                       style: ButtonStyle(
                         backgroundColor: WidgetStateProperty.all(kButtonColor),
                         padding: WidgetStateProperty.all(
@@ -64,7 +70,9 @@ class LoginViewBody extends StatelessWidget {
                       children: [
                         const Text(" Don't have an account ?"),
                         GestureDetector(
-                          onTap: () {},
+                          onTap: () {
+                            Get.to(()=> SiginView(),transition: Transition.leftToRight,duration: kTranstionDuration);
+                          },
                           child: const Text(
                             " Sign up",
                             style: TextStyle(fontWeight: FontWeight.bold),
@@ -78,13 +86,13 @@ class LoginViewBody extends StatelessWidget {
               Positioned(
                 left: 0,
                 width: 111,
-                child: Image.asset('assets/images/images/main_top.png'),
+                child: Image.asset('assets/images/images1/main_top.png'),
               ),
               Positioned(
                 bottom: 0,
                 right: 0,
                 width: 111,
-                child: Image.asset('assets/images/images/login_bottom.png'),
+                child: Image.asset('assets/images/images1/login_bottom.png'),
               ),
             ],
           ),
