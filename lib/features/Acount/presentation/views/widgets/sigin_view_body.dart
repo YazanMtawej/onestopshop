@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
-import 'package:get/get_core/src/get_main.dart';
 import 'package:get/route_manager.dart';
 import 'package:onestopshop/constents.dart';
 import 'package:onestopshop/features/Acount/presentation/views/login_view.dart';
