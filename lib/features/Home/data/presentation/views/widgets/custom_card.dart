@@ -1,7 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
+import 'package:get/get_navigation/get_navigation.dart';
+import 'package:get/state_manager.dart';
 import 'package:onestopshop/assets.dart';
 import 'package:onestopshop/constents.dart';
+import 'package:onestopshop/features/Home/data/presentation/views/product_view.dart';
 
 class CustomCard extends StatelessWidget {
    const CustomCard({
@@ -15,6 +18,7 @@ class CustomCard extends StatelessWidget {
     return GestureDetector(
       onTap: (){
       //  Navigator.pushNamed(context, UpdateProductPage.id,arguments: product);
+      Get.to(()=> ProductView(),duration: kTranstionDuration,transition: Transition.fade);
       },
       child: Stack(
         clipBehavior:Clip.none ,

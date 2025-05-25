@@ -29,28 +29,29 @@ class HomeViewBody extends StatelessWidget {
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
-            SizedBox(
-               height: MediaQuery.of(context).size.height *.27,
-              child: SingleChildScrollView(
-                scrollDirection :Axis.horizontal,
-                child: Row(
-                 
-                  
+              SizedBox(
+                height: MediaQuery.of(context).size.height * .27,
+                child: SingleChildScrollView(
+                  scrollDirection: Axis.horizontal,
+                  child: Row(
                     children: [
                       CustomProductItem(),
-                      SizedBox(width: 20,),
+                      SizedBox(width: 20),
                       CustomProductItem(),
-                       SizedBox(width: 20,),
+                      SizedBox(width: 20),
                       CustomProductItem(),
                     ],
                   ),
+                ),
               ),
-            ),
-              Text("Best Seller ",style: TextStyle(fontSize: 20,fontWeight: FontWeight.bold),),
+              Text(
+                "Best Seller ",
+                style: TextStyle(fontSize: 20, fontWeight: FontWeight.bold),
+              ),
               BestSallerGridView(),
-              
+
               Spacer(),
-             CustomBottomNavigationBar(),
+              CustomBottomNavigationBar(),
             ],
           ),
         ),
