@@ -3,7 +3,7 @@ import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:onestopshop/constents.dart';
 import 'package:onestopshop/features/Home/data/presentation/views/widgets/best_seller_grid_view.dart';
 import 'package:onestopshop/features/Home/data/presentation/views/widgets/custom_bottom_navigation_bar.dart';
-import 'package:onestopshop/features/Home/data/presentation/views/widgets/custom_product_item.dart';
+import 'package:onestopshop/features/Home/data/presentation/views/widgets/custom_product_image.dart';
 
 class HomeViewBody extends StatelessWidget {
   const HomeViewBody({super.key});
@@ -35,11 +35,11 @@ class HomeViewBody extends StatelessWidget {
                   scrollDirection: Axis.horizontal,
                   child: Row(
                     children: [
-                      CustomProductItem(),
+                      CustomProductImage(image: 'assets/images/clothes.jpg',onTap: (){},),
                       SizedBox(width: 20),
-                      CustomProductItem(),
+                      CustomProductImage(image: 'assets/images/perfume.jpeg',onTap: (){},),
                       SizedBox(width: 20),
-                      CustomProductItem(),
+                      CustomProductImage(image: 'assets/images/shose.jpeg',onTap: (){},),
                     ],
                   ),
                 ),

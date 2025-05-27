@@ -1,11 +1,10 @@
 import 'package:flutter/material.dart';
-import 'package:onestopshop/assets.dart';
 
 // ignore: must_be_immutable
-class CustomProductItem extends StatelessWidget {
-   CustomProductItem({super.key,  this.url, this.onTap}) ;
- String? url;
-  VoidCallback? onTap;
+class CustomProductImage extends StatelessWidget {
+  const CustomProductImage({super.key,  required this.image, this.onTap}) ;
+ final String image;
+  final VoidCallback? onTap;
   @override
   Widget build(BuildContext context) {
     return  GestureDetector(
@@ -15,9 +14,9 @@ class CustomProductItem extends StatelessWidget {
         child: Container(
           decoration: BoxDecoration(
             borderRadius: BorderRadius.circular(16),
-            image: const DecorationImage(
+            image:  DecorationImage(
               fit: BoxFit.fill,
-              image: AssetImage(AssetsData.logo))
+              image: AssetImage(image,)),
           ),
         ),
       ),

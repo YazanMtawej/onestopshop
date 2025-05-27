@@ -4,7 +4,7 @@ import 'package:get/utils.dart';
 import 'package:onestopshop/assets.dart';
 import 'package:onestopshop/constents.dart';
 import 'package:onestopshop/features/Acount/presentation/views/login_view.dart';
-import 'package:onestopshop/core/urit/widgets/custom_button.dart';
+import 'package:onestopshop/core/utils/widgets/custom_button.dart';
 
 class WelcomViewBody extends StatelessWidget {
   const WelcomViewBody({super.key});
