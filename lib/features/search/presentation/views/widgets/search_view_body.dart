@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:onestopshop/constents.dart';
 import 'package:onestopshop/core/utils/widgets/custom_text_field.dart';
 
