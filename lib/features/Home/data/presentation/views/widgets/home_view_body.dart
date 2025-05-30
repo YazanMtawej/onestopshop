@@ -1,6 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
+import 'package:get/get_navigation/get_navigation.dart';
+import 'package:get/utils.dart';
+import 'package:onestopshop/assets.dart';
 import 'package:onestopshop/constents.dart';
+import 'package:onestopshop/features/Home/data/presentation/views/clothes_view.dart';
 import 'package:onestopshop/features/Home/data/presentation/views/widgets/best_seller_grid_view.dart';
 import 'package:onestopshop/features/Home/data/presentation/views/widgets/custom_bottom_navigation_bar.dart';
 import 'package:onestopshop/features/Home/data/presentation/views/widgets/custom_product_image.dart';
@@ -20,7 +24,7 @@ class HomeViewBody extends StatelessWidget {
           actions: [
             IconButton(
               onPressed: () {},
-              icon: const Icon(FontAwesomeIcons.cartPlus, color: Colors.black),
+              icon: const Icon(FontAwesomeIcons.searchengin, color: Colors.black),
             ),
           ],
         ),
@@ -35,11 +39,11 @@ class HomeViewBody extends StatelessWidget {
                   scrollDirection: Axis.horizontal,
                   child: Row(
                     children: [
-                      CustomProductImage(image: 'assets/images/clothes.jpg',onTap: (){},),
+                      CustomProductImage(image: AssetsData.logo,onTap: (){Get.to(()=> ClothesView(),duration:kTranstionDuration,transition: Transition.fade);},),
                       SizedBox(width: 20),
-                      CustomProductImage(image: 'assets/images/perfume.jpeg',onTap: (){},),
+                      CustomProductImage(image: AssetsData.logo,onTap: (){},),
                       SizedBox(width: 20),
-                      CustomProductImage(image: 'assets/images/shose.jpeg',onTap: (){},),
+                      CustomProductImage(image: AssetsData.logo,onTap: (){},),
                     ],
                   ),
                 ),

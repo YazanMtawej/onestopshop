@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
+import 'package:onestopshop/assets.dart';
 import 'package:onestopshop/constents.dart';
 import 'package:onestopshop/features/Home/data/presentation/views/widgets/action_detaills_button.dart';
 import 'package:onestopshop/features/Home/data/presentation/views/widgets/custom_product_image.dart';
@@ -28,7 +29,7 @@ class ProducDetaillstViewBody extends StatelessWidget {
           children: [
             Padding(
               padding: EdgeInsets.symmetric(horizontal: width * .17),
-              child: CustomProductImage(image: 'assets/images/perfume.jpg',),
+              child: CustomProductImage(image: AssetsData.logo,),
             ),
             Text(
               'Detaills',
