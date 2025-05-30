@@ -4,10 +4,11 @@ import 'package:get/get_navigation/get_navigation.dart';
 import 'package:get/utils.dart';
 import 'package:onestopshop/assets.dart';
 import 'package:onestopshop/constents.dart';
-import 'package:onestopshop/features/Home/data/presentation/views/clothes_view.dart';
+import 'package:onestopshop/features/Home/data/presentation/views/perfume_view.dart';
 import 'package:onestopshop/features/Home/data/presentation/views/widgets/best_seller_grid_view.dart';
 import 'package:onestopshop/features/Home/data/presentation/views/widgets/custom_bottom_navigation_bar.dart';
 import 'package:onestopshop/features/Home/data/presentation/views/widgets/custom_product_image.dart';
+import 'package:onestopshop/features/search/presentation/views/search_view.dart';
 
 class HomeViewBody extends StatelessWidget {
   const HomeViewBody({super.key});
@@ -23,8 +24,17 @@ class HomeViewBody extends StatelessWidget {
           centerTitle: true,
           actions: [
             IconButton(
-              onPressed: () {},
-              icon: const Icon(FontAwesomeIcons.searchengin, color: Colors.black),
+              onPressed: () {
+                Get.to(
+                  () => SearchView(),
+                  duration: kTranstionDuration,
+                  transition: Transition.fade,
+                );
+              },
+              icon: const Icon(
+                FontAwesomeIcons.magnifyingGlass,
+                color: Colors.black,
+              ),
             ),
           ],
         ),
@@ -34,20 +44,23 @@ class HomeViewBody extends StatelessWidget {
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
               SizedBox(
-                height: MediaQuery.of(context).size.height * .27,
-                child: SingleChildScrollView(
-                  scrollDirection: Axis.horizontal,
-                  child: Row(
-                    children: [
-                      CustomProductImage(image: AssetsData.logo,onTap: (){Get.to(()=> ClothesView(),duration:kTranstionDuration,transition: Transition.fade);},),
-                      SizedBox(width: 20),
-                      CustomProductImage(image: AssetsData.logo,onTap: (){},),
-                      SizedBox(width: 20),
-                      CustomProductImage(image: AssetsData.logo,onTap: (){},),
-                    ],
-                  ),
+                height: MediaQuery.of(context).size.height * .2,
+                child: ListView(
+                  children: [
+                    CustomProductImage(
+                      image: AssetsData.logo,
+                      onTap: () {
+                        Get.to(
+                          () => PerfumeView(),
+                          duration: kTranstionDuration,
+                          transition: Transition.fade,
+                        );
+                      },
+                    ),
+                  ],
                 ),
               ),
+              SizedBox(height: 30),
               Text(
                 "Best Seller ",
                 style: TextStyle(fontSize: 20, fontWeight: FontWeight.bold),

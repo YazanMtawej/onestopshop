@@ -10,7 +10,7 @@ class CustomBottomNavigationBar extends StatelessWidget {
   Widget build(BuildContext context) {
     return ConvexAppBar(
       
-      color: kCardColor,
+      color: kTextColor,
       activeColor: kButtonColor[50],
       backgroundColor: kButtonColor[100],
       items: [

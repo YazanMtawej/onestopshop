@@ -9,14 +9,17 @@ class CustomProductImage extends StatelessWidget {
   Widget build(BuildContext context) {
     return  GestureDetector(
       onTap: onTap,
-      child: AspectRatio(
-        aspectRatio: 2.7/4,
-        child: Container(
-          decoration: BoxDecoration(
-            borderRadius: BorderRadius.circular(16),
-            image:  DecorationImage(
-              fit: BoxFit.fill,
-              image: AssetImage(image,)),
+      child: SizedBox(
+        height: MediaQuery.of(context).size.height * .25,
+        child: AspectRatio(
+          aspectRatio: 2.7/4,
+          child: Container(
+            decoration: BoxDecoration(
+              borderRadius: BorderRadius.circular(16),
+              image:  DecorationImage(
+                fit: BoxFit.fill,
+                image: AssetImage(image,)),
+            ),
           ),
         ),
       ),

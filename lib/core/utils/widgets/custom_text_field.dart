@@ -1,32 +1,39 @@
 import 'package:flutter/material.dart';
+import 'package:font_awesome_flutter/font_awesome_flutter.dart';
+import 'package:onestopshop/constents.dart';
 
 
-// ignore: must_be_immutable
+
 class CustomTextField extends StatelessWidget {
-   // ignore: use_key_in_widget_constructors
-   CustomTextField({ this.hinttext,this.onChanged,this.obscureText=false, this.inputType});
+   
+   const CustomTextField({super.key,  this.hinttext,this.onChanged,this.obscureText=false, this.inputType});
 
-  Function(String)? onChanged;
-  String? hinttext;
-  bool? obscureText;
-  TextInputType? inputType;
+ final Function(String)? onChanged;
+ final String? hinttext;
+ final bool? obscureText;
+ final TextInputType? inputType;
   @override
   Widget build(BuildContext context) {
     return TextField(
+      
       keyboardType: inputType ,
       obscureText: obscureText!,
       // ignore: body_might_complete_normally_nullable
      
       onChanged: onChanged,
       decoration: InputDecoration(
+        suffixIcon:  IconButton(onPressed: (){}, icon:   Icon(
+                FontAwesomeIcons.magnifyingGlass,
+                color: Colors.black,
+              ),),
         hintText: hinttext,
-        hintStyle: const TextStyle(color: Colors.grey),
+        hintStyle: const TextStyle(color: kTextColor),
         border:  OutlineInputBorder(
-          borderSide:  const BorderSide(color: Colors.grey),
+          borderSide:  const BorderSide(color: kCardColor),
           borderRadius: BorderRadius.circular(16)
         ),
         enabledBorder: OutlineInputBorder(
-          borderSide:  const BorderSide(color: Colors.grey),
+          borderSide:  const BorderSide(color: kButtonColor),
           borderRadius: BorderRadius.circular(16),
         ),
       ),
