@@ -6,7 +6,6 @@ import 'package:onestopshop/assets.dart';
 import 'package:onestopshop/constents.dart';
 import 'package:onestopshop/features/Home/data/presentation/views/perfume_view.dart';
 import 'package:onestopshop/features/Home/data/presentation/views/widgets/best_seller_grid_view.dart';
-import 'package:onestopshop/features/Home/data/presentation/views/widgets/custom_bottom_navigation_bar.dart';
 import 'package:onestopshop/features/Home/data/presentation/views/widgets/custom_product_image.dart';
 import 'package:onestopshop/features/search/presentation/views/search_view.dart';
 
@@ -17,7 +16,7 @@ class HomeViewBody extends StatelessWidget {
   Widget build(BuildContext context) {
     return SafeArea(
       child: Scaffold(
-        appBar: AppBar(
+        appBar:  AppBar(
           backgroundColor: kButtonColor,
           elevation: 0,
           title: const Text('New Trend', style: TextStyle(color: Colors.black)),
@@ -68,7 +67,7 @@ class HomeViewBody extends StatelessWidget {
               BestSallerGridView(),
 
               Spacer(),
-              CustomBottomNavigationBar(),
+             
             ],
           ),
         ),

@@ -11,7 +11,7 @@ class PerfumeViewBody extends StatelessWidget {
       appBar: AppBar(
           backgroundColor: kButtonColor,
           elevation: 0,
-          title: const Text('Clothes', style: TextStyle(color: Colors.black)),
+          title: const Text('Perfume', style: TextStyle(color: Colors.black)),
           centerTitle: true,
           actions: [
             IconButton(

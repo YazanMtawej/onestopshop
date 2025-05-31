@@ -5,7 +5,7 @@ import 'package:onestopshop/constents.dart';
 import 'package:onestopshop/features/Acount/presentation/views/login_view.dart';
 import 'package:onestopshop/features/Acount/presentation/views/widgets/text_field_email.dart';
 import 'package:onestopshop/features/Acount/presentation/views/widgets/text_field_password.dart';
-import 'package:onestopshop/features/Home/data/presentation/views/home_view.dart';
+import 'package:onestopshop/features/main/presentation/views/main_view.dart';
 
 class SiginViewBody extends StatelessWidget {
   const SiginViewBody({super.key});
@@ -44,7 +44,7 @@ class SiginViewBody extends StatelessWidget {
                     const SizedBox(height: 5),
                     ElevatedButton(
                       onPressed: () {
-                         Get.to(()=> HomeView(),transition: Transition.leftToRight,duration: kTranstionDuration);
+                         Get.to(()=> MainView(),transition: Transition.leftToRight,duration: kTranstionDuration);
                       },
                       style: ButtonStyle(
                         backgroundColor: WidgetStateProperty.all(kButtonColor),
