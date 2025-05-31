@@ -17,7 +17,7 @@ class HomeViewBody extends StatelessWidget {
     return SafeArea(
       child: Scaffold(
         appBar:  AppBar(
-          backgroundColor: kButtonColor,
+          backgroundColor: kAppBarColor,
           elevation: 0,
           title: const Text('New Trend', style: TextStyle(color: Colors.black)),
           centerTitle: true,

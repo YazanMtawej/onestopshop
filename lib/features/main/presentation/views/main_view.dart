@@ -39,7 +39,7 @@ class _MainViewState extends State<MainView> {
             TabItem(
               icon: IconButton(
                 onPressed: () {},
-                icon: const Icon(Icons.home, size: 18, color: kButtonColor),
+                icon: const Icon(Icons.home, size: 19, color: kIconColor),
               ),
               title: 'Home',
             ),
@@ -48,8 +48,8 @@ class _MainViewState extends State<MainView> {
                 onPressed: () {},
                 icon: Icon(
                   FontAwesomeIcons.cartArrowDown,
-                  size: 18,
-                  color: kButtonColor,
+                  size: 19,
+                  color: kIconColor,
                 ),
               ),
               title: 'Cart',
@@ -57,7 +57,7 @@ class _MainViewState extends State<MainView> {
             TabItem(
               icon: IconButton(
                 onPressed: () {},
-                icon: const Icon(Icons.person, size: 18, color: kButtonColor),
+                icon: const Icon(Icons.person, size: 19, color: kIconColor),
               ),
               title: 'Me',
             ),

@@ -17,14 +17,14 @@ class CustomBottomNavigationBar extends StatelessWidget {
         TabItem(
           icon: IconButton(
             onPressed: () {},
-            icon: const Icon(Icons.home,size: 18, color: kButtonColor),
+            icon: const Icon(Icons.home,size: 18, color: kIconColor),
           ),
           title: 'Home',
         ),
         TabItem(
           icon: IconButton(
             onPressed: () {},
-            icon: Icon(FontAwesomeIcons.cartArrowDown,size: 18,  color: kButtonColor),
+            icon: Icon(FontAwesomeIcons.cartArrowDown,size: 18,  color: kIconColor),
           ),
           title: 'Cart',
         ),
@@ -32,7 +32,7 @@ class CustomBottomNavigationBar extends StatelessWidget {
           icon: IconButton(
             //الانتقال بتغيير الbody
             onPressed: () {},
-            icon: const Icon(Icons.person,size: 18,  color: kButtonColor),
+            icon: const Icon(Icons.person,size: 18,  color: kIconColor),
           ),
           title: 'Me',
         ),

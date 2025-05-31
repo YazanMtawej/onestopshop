@@ -5,3 +5,5 @@ const kTranstionDuration = Duration(milliseconds: 600);
 const kButtonColor = Colors.deepOrange;
 const kTextColor = Colors.black;
 const kCardColor =Colors.orangeAccent;
+const kAppBarColor =Colors.deepOrange;
+const kIconColor =Colors.deepOrange;

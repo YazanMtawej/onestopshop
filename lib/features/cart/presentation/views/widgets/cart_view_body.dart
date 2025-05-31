@@ -7,7 +7,7 @@ class CartViewBody extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return  SafeArea(child: Scaffold(
-      appBar: AppBar( backgroundColor: kButtonColor,
+      appBar: AppBar( backgroundColor: kAppBarColor,
           elevation: 0,
           title: const Text('My Cart', style: TextStyle(fontSize:18,color: Colors.black)),
           ),
