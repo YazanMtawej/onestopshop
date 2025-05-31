@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:onestopshop/constents.dart';
-import 'package:onestopshop/features/Home/data/presentation/views/widgets/perfum_list_view_item.dart';
+import 'package:onestopshop/features/Home/data/presentation/views/widgets/perfume_list_view.dart';
 
 class PerfumeViewBody extends StatelessWidget {
   const PerfumeViewBody({super.key});
@@ -25,7 +25,7 @@ class PerfumeViewBody extends StatelessWidget {
         padding: const EdgeInsets.symmetric(horizontal: 30,vertical: 20),
         child: const Column(
           children: [
-            PerfumeListViewItem(),
+            PerfumeListView(),
           ],
         ),
       ),

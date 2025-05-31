@@ -47,15 +47,15 @@ class HomeViewBody extends StatelessWidget {
                 child: ListView(
                   children: [
                     CustomProductImage(
-                      image: AssetsData.logo,
-                      onTap: () {
-                        Get.to(
-                          () => PerfumeView(),
-                          duration: kTranstionDuration,
-                          transition: Transition.fade,
-                        );
-                      },
-                    ),
+                     image: AssetsData.logo,
+                     onTap: () {
+                       Get.to(
+                         () => PerfumeView(),
+                         duration: kTranstionDuration,
+                         transition: Transition.fade,
+                       );
+                     },
+                                        ),
                   ],
                 ),
               ),
