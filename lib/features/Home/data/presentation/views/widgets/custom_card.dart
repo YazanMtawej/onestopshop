@@ -4,7 +4,7 @@ import 'package:get/get_navigation/get_navigation.dart';
 import 'package:get/state_manager.dart';
 import 'package:onestopshop/assets.dart';
 import 'package:onestopshop/constents.dart';
-import 'package:onestopshop/features/Home/data/presentation/views/product_view.dart';
+import 'package:onestopshop/features/Home/data/presentation/views/product_detaills_view.dart';
 
 class CustomCard extends StatelessWidget {
    const CustomCard({
@@ -18,7 +18,7 @@ class CustomCard extends StatelessWidget {
     return GestureDetector(
       onTap: (){
       //  Navigator.pushNamed(context, UpdateProductPage.id,arguments: product);
-      Get.to(()=> ProductView(),duration: kTranstionDuration,transition: Transition.fade);
+      Get.to(()=> ProductDetaillsView(),duration: kTranstionDuration,transition: Transition.fade);
       },
       child: Stack(
         clipBehavior:Clip.none ,

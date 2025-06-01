@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:get/route_manager.dart';
 import 'package:onestopshop/assets.dart';
-import 'package:onestopshop/features/Home/data/presentation/views/product_view.dart';
+import 'package:onestopshop/features/Home/data/presentation/views/product_detaills_view.dart';
 import 'package:onestopshop/features/Home/data/presentation/views/widgets/perfume_rating.dart';
 
 class PerfumeListViewItem extends StatelessWidget {
@@ -12,7 +12,7 @@ class PerfumeListViewItem extends StatelessWidget {
     return GestureDetector(
       onTap: () {
         Get.to(
-          () => ProductView(),
+          () => ProductDetaillsView(),
           duration: kTabScrollDuration,
           transition: Transition.fade,
         );

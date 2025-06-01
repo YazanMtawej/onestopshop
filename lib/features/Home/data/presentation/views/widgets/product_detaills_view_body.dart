@@ -14,7 +14,7 @@ class ProducDetaillstViewBody extends StatelessWidget {
     return SafeArea(
       child: Scaffold(
         appBar: AppBar(
-          backgroundColor: kButtonColor,
+          backgroundColor: kAppBarColor,
           elevation: 0,
           title: const Text('Detaills', style: TextStyle(color: kTextColor)),
           centerTitle: true,
