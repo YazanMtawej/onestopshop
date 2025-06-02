@@ -1,6 +1,9 @@
 import 'package:flutter/material.dart';
-import 'package:onestopshop/assets.dart';
+import 'package:get/get_navigation/get_navigation.dart';
+import 'package:get/utils.dart';
 import 'package:onestopshop/constents.dart';
+import 'package:onestopshop/features/profile/presentation/views/Settings_view.dart';
+import 'package:onestopshop/features/profile/presentation/views/from_app_view.dart';
 import 'package:onestopshop/features/profile/presentation/views/widgets/profile_button.dart';
 import 'package:onestopshop/features/profile/presentation/views/widgets/profile_design.dart';
 
@@ -25,17 +28,35 @@ class ProfileViewBody extends StatelessWidget {
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
               ProfileDesign(),
-               const       SizedBox(height: 10,),
+              const SizedBox(height: 10),
               Center(
                 child: Text(
                   "Name User",
                   style: TextStyle(fontSize: 30, fontWeight: FontWeight.bold),
                 ),
               ),
-        const       SizedBox(height: 20,),
-  ProfileButton(title: 'Settings',onTap: (){},),
- const SizedBox(height: 20,),
-  ProfileButton(title: 'About the application',onTap: (){},),
+              const SizedBox(height: 20),
+              ProfileButton(
+                title: 'Settings',
+                onTap: () {
+                  Get.to(
+                    () => SettingsView(),
+                    duration: kTranstionDuration,
+                    transition: Transition.fade,
+                  );
+                },
+              ),
+              const SizedBox(height: 20),
+              ProfileButton(
+                title: 'About the application',
+                onTap: () {
+                  Get.to(
+                    () => FromAppView(),
+                    duration: kTranstionDuration,
+                    transition: Transition.fade,
+                  );
+                },
+              ),
             ],
           ),
         ),

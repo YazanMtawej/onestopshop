@@ -29,7 +29,7 @@ class ProducDetaillstViewBody extends StatelessWidget {
           children: [
             Padding(
               padding: EdgeInsets.symmetric(horizontal: width * .17),
-              child: CustomProductImage(image: AssetsData.logo,),
+              child: CustomProductImage(image: AssetsData.p3,),
             ),
             Text(
               'Detaills',

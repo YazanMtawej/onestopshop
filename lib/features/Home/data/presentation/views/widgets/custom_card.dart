@@ -72,8 +72,8 @@ class CustomCard extends StatelessWidget {
           ),
       
           Positioned(
-            right: 5,
-            top: -20,
+            right: -7,
+            top: -50,
       
             child:  Container(
               height: 110,
@@ -82,7 +82,7 @@ class CustomCard extends StatelessWidget {
             borderRadius: BorderRadius.circular(16),
             image: const DecorationImage(
               fit: BoxFit.fill,
-              image: AssetImage(AssetsData.logo),)
+              image: AssetImage(AssetsData.p1),)
           ),
         ),
       ),

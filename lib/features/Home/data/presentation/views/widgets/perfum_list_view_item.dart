@@ -28,7 +28,7 @@ class PerfumeListViewItem extends StatelessWidget {
                   borderRadius: BorderRadius.circular(8),
                   image: const DecorationImage(
                     fit: BoxFit.fill,
-                    image: AssetImage(AssetsData.logo),
+                    image: AssetImage(AssetsData.p2),
                   ),
                 ),
               ),

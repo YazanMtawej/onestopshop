@@ -47,7 +47,7 @@ class HomeViewBody extends StatelessWidget {
                 child: ListView(
                   children: [
                     CustomProductImage(
-                     image: AssetsData.logo,
+                     image: AssetsData.p4,
                      onTap: () {
                        Get.to(
                          () => PerfumeView(),
