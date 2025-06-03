@@ -1,44 +1,45 @@
 import 'package:flutter/material.dart';
-import 'package:onestopshop/assets.dart';
 import 'package:onestopshop/constents.dart';
+import 'package:onestopshop/core/utils/widgets/photo_design.dart';
 
 class FromAppViewBody extends StatelessWidget {
   const FromAppViewBody({super.key});
 
   @override
   Widget build(BuildContext context) {
-    return  Scaffold(
+    return Scaffold(
       appBar: AppBar(
-          backgroundColor: kAppBarColor,
-          elevation: 0,
-          title: const Text(
-            'About Application',
-            style: TextStyle(fontSize: 18, color: Colors.black),
-          ),
-        ) ,
-      body: ListView(children:[
-        Card(
-  elevation: 4,
-  shape: RoundedRectangleBorder(
-    borderRadius: BorderRadius.circular(12),
-  ),
-  margin: const EdgeInsets.all(16),
-  child: Padding(
-    padding: const EdgeInsets.all(16.0),
-    child: Column(
-      crossAxisAlignment: CrossAxisAlignment.start,
-      children: [
-        Text(
-          'About the App',
-          style: TextStyle(
-            fontSize: 22,
-            fontWeight: FontWeight.bold,
-            color: Colors.brown[800],
-          ),
+        backgroundColor: kAppBarColor,
+        elevation: 0,
+        title: const Text(
+          'About Application',
+          style: TextStyle(fontSize: 18, color: Colors.black),
         ),
-        const SizedBox(height: 12),
-        const Text(
-''' Welcome to our Perfume Store App (Stop one shop). your ultimate destination for discovering and purchasing premium fragrances from around the world. Our app is designed to offer a seamless and enjoyable shopping experience for perfume lovers of all kinds.
+      ),
+      body: ListView(
+        children: [
+          Card(
+            elevation: 4,
+            shape: RoundedRectangleBorder(
+              borderRadius: BorderRadius.circular(12),
+            ),
+            margin: const EdgeInsets.all(16),
+            child: Padding(
+              padding: const EdgeInsets.all(16.0),
+              child: Column(
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: [
+                  Text(
+                    'About the App',
+                    style: TextStyle(
+                      fontSize: 22,
+                      fontWeight: FontWeight.bold,
+                      color: Colors.brown[800],
+                    ),
+                  ),
+                  const SizedBox(height: 12),
+                  const Text(
+                    ''' Welcome to our Perfume Store App (Stop one shop). your ultimate destination for discovering and purchasing premium fragrances from around the world. Our app is designed to offer a seamless and enjoyable shopping experience for perfume lovers of all kinds.
         
     What We Offer:
         
@@ -57,30 +58,18 @@ Whether you're looking for your signature fragrance or the perfect gift, our app
 Thank you for choosing us. 
         
 we hope you enjoy your fragrance journey!''',
-          style: TextStyle(fontSize: 16, height: 1.5),
-        ),
-       
-      ],
-    ),
-  ),
-),
-     Container(
-  decoration: BoxDecoration(
-    image: DecorationImage(
-      image: AssetImage(AssetsData.p2),
-      fit: BoxFit.cover,
-      colorFilter: ColorFilter.mode(Colors.black.withOpacity(0.3), BlendMode.darken),
-    ),
-  ),
-  child: Padding(
-    padding: EdgeInsets.all(24),
-    child: Text(
-      'Discover luxury fragrances...',
-      style: TextStyle(color: Colors.white, fontSize: 20),
-    ),
-  ),
-)
-      ],),
+                    style: TextStyle(fontSize: 16, height: 1.5),
+                  ),
+                 
+                ],
+                 
+              ),
+            ),
+          ),
+
+           PhotoDesign(),
+        ],
+      ),
     );
   }
 }

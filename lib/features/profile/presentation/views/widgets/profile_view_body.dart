@@ -42,7 +42,7 @@ class ProfileViewBody extends StatelessWidget {
                   Get.to(
                     () => SettingsView(),
                     duration: kTranstionDuration,
-                    transition: Transition.fade,
+                    transition: Transition.circularReveal,
                   );
                 },
               ),
@@ -53,7 +53,7 @@ class ProfileViewBody extends StatelessWidget {
                   Get.to(
                     () => FromAppView(),
                     duration: kTranstionDuration,
-                    transition: Transition.fade,
+                    transition: Transition.circularReveal,
                   );
                 },
               ),

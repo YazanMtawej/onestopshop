@@ -22,10 +22,10 @@ class PerfumeListViewItem extends StatelessWidget {
         child: Row(
           children: [
             AspectRatio(
-              aspectRatio: 2.7 / 4,
+              aspectRatio: 2.6 / 4,
               child: Container(
                 decoration: BoxDecoration(
-                  borderRadius: BorderRadius.circular(8),
+                  borderRadius: BorderRadius.circular(16),
                   image: const DecorationImage(
                     fit: BoxFit.fill,
                     image: AssetImage(AssetsData.p2),
@@ -33,14 +33,15 @@ class PerfumeListViewItem extends StatelessWidget {
                 ),
               ),
             ),
-            const SizedBox(width: 30),
+            const SizedBox(width: 20),
             Expanded(
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
+                  const SizedBox(height: 12),
                   SizedBox(
                     width: MediaQuery.of(context).size.width * .5,
-                    child: Text(
+                    child: const Text(
                       'Dark City',
                       maxLines: 2,
                       overflow: TextOverflow.ellipsis,
@@ -50,9 +51,9 @@ class PerfumeListViewItem extends StatelessWidget {
                       ),
                     ),
                   ),
-                  SizedBox(height: 3),
-                  Text('detals', style: TextStyle(fontSize: 14)),
-                  SizedBox(height: 3),
+                  const SizedBox(height: 3),
+                  const Text('detals', style: TextStyle(fontSize: 14)),
+                  const SizedBox(height: 3),
                   Row(
                     children: const [
                       Text("price", style: TextStyle(fontSize: 20)),

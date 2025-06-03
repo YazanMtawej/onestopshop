@@ -3,6 +3,7 @@ import 'package:get/get_navigation/get_navigation.dart';
 import 'package:get/utils.dart';
 import 'package:onestopshop/assets.dart';
 import 'package:onestopshop/constents.dart';
+import 'package:onestopshop/core/utils/widgets/photo_design.dart';
 import 'package:onestopshop/features/Acount/presentation/views/login_view.dart';
 import 'package:onestopshop/core/utils/widgets/custom_button.dart';
 
@@ -25,22 +26,27 @@ class WelcomViewBody extends StatelessWidget {
               style: TextStyle(fontSize: 24, fontWeight: FontWeight.bold),
             ),
             SizedBox(height: 12),
-            const Text(textAlign: TextAlign.center, ''' 
-    We offer you an electronic products market 
-      that contains the best types of products 
-      at the cheapest prices ''', style: TextStyle(fontSize: 17)),
-
-            SizedBox(height: 150),
-            CustomButton(
-              onTap: () {
-                Get.to(
-                  () => const LoginView(),
-                  transition: Transition.rightToLeft,
-                  duration: kTranstionDuration,
-                );
-              },
-              text: 'Next',
+            const Text(textAlign: TextAlign.center, 
+'''We offer you an electronic products market 
+   that contains the best types of products 
+   at the cheapest prices''', style: TextStyle(fontSize: 18,fontWeight: FontWeight.w400)),
+        SizedBox(height: 20,),
+        PhotoDesign(),
+            Spacer(),
+            Padding(
+              padding: const EdgeInsets.symmetric(vertical: 25),
+              child: CustomButton(
+                onTap: () {
+                  Get.to(
+                    () => const LoginView(),
+                    transition: Transition.rightToLeft,
+                    duration: kTranstionDuration,
+                  );
+                },
+                text: 'Next',
+              ),
             ),
+             
           ],
         ),
       ),

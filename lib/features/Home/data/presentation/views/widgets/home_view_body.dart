@@ -27,7 +27,7 @@ class HomeViewBody extends StatelessWidget {
                 Get.to(
                   () => SearchView(),
                   duration: kTranstionDuration,
-                  transition: Transition.fade,
+                  transition: Transition.circularReveal,
                 );
               },
               icon: const Icon(
