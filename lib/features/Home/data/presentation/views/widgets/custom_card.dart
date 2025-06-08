@@ -20,74 +20,82 @@ class CustomCard extends StatelessWidget {
       //  Navigator.pushNamed(context, UpdateProductPage.id,arguments: product);
       Get.to(()=> ProductDetaillsView(),duration: kTranstionDuration,transition: Transition.fade);
       },
-      child: Stack(
-        clipBehavior:Clip.none ,
-        children: [
-          Container(
-           
-            decoration: BoxDecoration(
-              boxShadow: [
-                BoxShadow(
-                  blurRadius: 40,
+      child: Container(
+       color: kButtonColor.shade200,
+        child: Stack(
+          
+          clipBehavior:Clip.none ,
+          children: [
+            Container(
+             
+              decoration: BoxDecoration(
+                boxShadow: [
+                  BoxShadow(
+                    blurRadius: 40,
+                    
+                    color: kCardColor,
+                    spreadRadius: 0,
+                    offset: const Offset(10, 10)
+                  ),
+                ]
+              ),
+              child: Card(
+                elevation: 10,
+                child: Padding(
                   
-                  color: kCardColor,
-                  spreadRadius: 0,
-                  offset: const Offset(10, 10)
-                ),
-              ]
-            ),
-            child: Card(
-              elevation: 10,
-              child: Padding(
-                
-                padding: const EdgeInsets.symmetric(horizontal: 16,vertical: 16),
-                child: Column(
-                  mainAxisAlignment: MainAxisAlignment.end,
-                  crossAxisAlignment: CrossAxisAlignment.start,
-                  children: [
-                    const Text(
-                      'plane',
-                      style: TextStyle(color: Colors.grey, fontSize: 16),
-                    ),
-                    const SizedBox(height: 3,),
-                    Row(
-                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                      children: [
-                        const Text(
-                         r'$' '400',
-                          style: TextStyle(color: Colors.grey, fontSize: 16),
-                        ),
-                        IconButton(
-                            onPressed: () {},
-                            icon: const Icon(
-                              FontAwesomeIcons.heart,
-                              color: Colors.red,
-                            ))
-                      ],
-                    ),
-                  ],
+                  padding: const EdgeInsets.symmetric(horizontal: 16,vertical: 16),
+                  child: Column(
+                    mainAxisAlignment: MainAxisAlignment.end,
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    children: [
+                      Row(
+                        children: [
+                          const Text(
+                            'plane',
+                            style: TextStyle(color: Colors.grey, fontSize: 16),
+                          ),
+                        ],
+                      ),
+                      const SizedBox(height: 3,),
+                      Row(
+                        mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                        children: [
+                          const Text(
+                           r'$' '400',
+                            style: TextStyle(color: Colors.grey, fontSize: 16),
+                          ),
+                          IconButton(
+                              onPressed: () {},
+                              icon: const Icon(
+                                FontAwesomeIcons.heart,
+                                color: Colors.red,
+                              ))
+                        ],
+                      ),
+                    ],
+                  ),
                 ),
               ),
             ),
+        
+            Positioned(
+              right: -7,
+              top: -50,
+                  
+              child:  Container(
+                height: 110,
+                width: 90,
+            decoration: BoxDecoration(
+              borderRadius: BorderRadius.circular(16),
+              image: const DecorationImage(
+                fit: BoxFit.fill,
+                image: AssetImage(AssetsData.p1),)
+            ),
+                    ),
+                  ),
+        ],
           ),
-      
-          Positioned(
-            right: -7,
-            top: -50,
-      
-            child:  Container(
-              height: 110,
-              width: 90,
-          decoration: BoxDecoration(
-            borderRadius: BorderRadius.circular(16),
-            image: const DecorationImage(
-              fit: BoxFit.fill,
-              image: AssetImage(AssetsData.p1),)
-          ),
-        ),
       ),
-      ],
-        ),
     );
   }
 }

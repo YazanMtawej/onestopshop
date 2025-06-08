@@ -31,43 +31,47 @@ class _MainViewState extends State<MainView> {
                   FadeTransition(opacity: animation, child: child),
           child: pages[currentIndex],
         ),
-        bottomNavigationBar: ConvexAppBar(
-          color: kTextColor,
-          activeColor: kButtonColor[50],
-          backgroundColor: kButtonColor[100],
-          items: [
-            TabItem(
-              icon: IconButton(
-                onPressed: () {},
-                icon: const Icon(Icons.home, size: 19, color: kIconColor),
-              ),
-              title: 'Home',
-            ),
-            TabItem(
-              icon: IconButton(
-                onPressed: () {},
-                icon: Icon(
-                  FontAwesomeIcons.cartArrowDown,
-                  size: 19,
-                  color: kIconColor,
+        bottomNavigationBar: Container(
+          height: 55,
+          color: kCardColor.shade400,
+          child: ConvexAppBar(
+            color: kTextColor,
+            activeColor: kButtonColor[100],
+            backgroundColor: kButtonColor[200],
+            items: [
+              TabItem(
+                icon: IconButton(
+                  onPressed: () {},
+                  icon: const Icon(Icons.home, size: 19, color: kIconColor),
                 ),
+                title: 'Home',
               ),
-              title: 'Cart',
-            ),
-            TabItem(
-              icon: IconButton(
-                onPressed: () {},
-                icon: const Icon(Icons.person, size: 19, color: kIconColor),
+              TabItem(
+                icon: IconButton(
+                  onPressed: () {},
+                  icon: Icon(
+                    FontAwesomeIcons.cartArrowDown,
+                    size: 19,
+                    color: kIconColor,
+                  ),
+                ),
+                title: 'Cart',
               ),
-              title: 'Me',
-            ),
-          ],
-          initialActiveIndex: currentIndex,
-          onTap: (int index) {
-            setState(() {
-              currentIndex = index;
-            });
-          },
+              TabItem(
+                icon: IconButton(
+                  onPressed: () {},
+                  icon: const Icon(Icons.person, size: 19, color: kIconColor),
+                ),
+                title: 'Me',
+              ),
+            ],
+            initialActiveIndex: currentIndex,
+            onTap: (int index) {
+              setState(() {
+                currentIndex = index;
+              });
+            },
+          ),
         ),
       ),
     );

@@ -20,29 +20,27 @@ class HomeViewBody extends StatelessWidget {
           
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
-            CustomAppBar(text: 'New Trend',),
+           const CustomAppBar(text: 'New Trend',),
            const SizedBox(height: 10,),
             Padding(
               padding: const EdgeInsets.symmetric(horizontal: 8),
               child: SizedBox(
                 height: MediaQuery.of(context).size.height * .2,
-                child: ListView(
-                  children: [
-                    CustomProductImage(
-                     image: AssetsData.p4,
-                     onTap: () {
-                       Get.to(
-                         () => PerfumeView(),
-                         duration: kTranstionDuration,
-                         transition: Transition.fade,
-                       );
-                     },
-                                        ),
-                  ],
+                child: SizedBox(width: double.infinity,
+                  child: CustomProductImage(
+                   image: AssetsData.p4,
+                   onTap: () {
+                     Get.to(
+                       () => PerfumeView(),
+                       duration: kTranstionDuration,
+                       transition: Transition.fade,
+                     );
+                   },
+                                      ),
                 ),
               ),
             ),
-            SizedBox(height: 30),
+         const   SizedBox(height: 20),
             Padding(
               padding: const EdgeInsets.symmetric(horizontal: 8),
               child: Text(
@@ -50,12 +48,10 @@ class HomeViewBody extends StatelessWidget {
                 style: TextStyle(fontSize: 20, fontWeight: FontWeight.bold),
               ),
             ),
-            Padding(
-              padding: const EdgeInsets.symmetric(horizontal: 8),
-              child: BestSallerGridView(),
-            ),
+           
+            Expanded(child: BestSallerGridView()),
         
-            Spacer(),
+        
            
           ],
         ),

@@ -11,9 +11,9 @@ class BestSallerGridView extends StatelessWidget {
       width: double.infinity,
       child: Padding(
         padding: const EdgeInsets.only(
-          left: 10,
-          right: 10,
-          top: 35,
+          left: 15,
+          right: 15,
+          top: 15,
           
         ),
         child: GridView.builder(
