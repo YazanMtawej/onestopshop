@@ -12,7 +12,7 @@ class PhotoDesign extends StatelessWidget {
           image: AssetImage(AssetsData.p2),
           fit: BoxFit.cover,
           colorFilter: ColorFilter.mode(
-            Colors.black.withOpacity(0.3),
+            Colors.black.withValues(alpha: .3),
             BlendMode.darken,
           ),
         ),

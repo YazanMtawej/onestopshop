@@ -21,7 +21,7 @@ class OneStopShop extends StatelessWidget {
     return GetMaterialApp(
       
       debugShowCheckedModeBanner: false,
-      theme: ThemeData.light().copyWith(scaffoldBackgroundColor: kPrimaryColor),
+      theme: ThemeData.light().copyWith(scaffoldBackgroundColor: kPrimaryColor.withValues(alpha: .8)),
       home: const SplashView(),
     );
   }

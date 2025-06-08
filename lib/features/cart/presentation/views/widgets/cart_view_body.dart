@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:onestopshop/constents.dart';
+import 'package:onestopshop/core/utils/widgets/custom_app_bar.dart';
 
 class CartViewBody extends StatelessWidget {
   const CartViewBody({super.key});
@@ -7,11 +7,12 @@ class CartViewBody extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return  SafeArea(child: Scaffold(
-      appBar: AppBar( backgroundColor: kAppBarColor,
-          elevation: 0,
-          title: const Text('My Cart', style: TextStyle(fontSize:18,color: Colors.black)),
-          ),
-      body: Column(),
+      
+      body: Column(
+        children: [
+          CustomAppBar(text: 'My Cart'),
+        ],
+      ),
     ));
   }
 }

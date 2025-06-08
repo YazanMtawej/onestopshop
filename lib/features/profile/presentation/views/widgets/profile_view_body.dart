@@ -2,7 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:get/get_navigation/get_navigation.dart';
 import 'package:get/utils.dart';
 import 'package:onestopshop/constents.dart';
-import 'package:onestopshop/features/profile/presentation/views/Settings_view.dart';
+import 'package:onestopshop/core/utils/widgets/custom_app_bar.dart';
+import 'package:onestopshop/features/profile/presentation/views/settings_view.dart';
 import 'package:onestopshop/features/profile/presentation/views/from_app_view.dart';
 import 'package:onestopshop/features/profile/presentation/views/widgets/profile_button.dart';
 import 'package:onestopshop/features/profile/presentation/views/widgets/profile_design.dart';
@@ -14,19 +15,13 @@ class ProfileViewBody extends StatelessWidget {
   Widget build(BuildContext context) {
     return SafeArea(
       child: Scaffold(
-        appBar: AppBar(
-          backgroundColor: kAppBarColor,
-          elevation: 0,
-          title: const Text(
-            'My Profile',
-            style: TextStyle(fontSize: 18, color: Colors.black),
-          ),
-        ),
+       
         body: SizedBox(
           width: double.infinity,
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
+              CustomAppBar(text: 'My Profile'),
               ProfileDesign(),
               const SizedBox(height: 10),
               Center(

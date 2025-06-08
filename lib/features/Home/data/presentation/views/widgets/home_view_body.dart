@@ -1,13 +1,12 @@
 import 'package:flutter/material.dart';
-import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:get/get_navigation/get_navigation.dart';
 import 'package:get/utils.dart';
 import 'package:onestopshop/assets.dart';
 import 'package:onestopshop/constents.dart';
 import 'package:onestopshop/features/Home/data/presentation/views/perfume_view.dart';
+import 'package:onestopshop/core/utils/widgets/custom_app_bar.dart';
 import 'package:onestopshop/features/Home/data/presentation/views/widgets/best_seller_grid_view.dart';
 import 'package:onestopshop/features/Home/data/presentation/views/widgets/custom_product_image.dart';
-import 'package:onestopshop/features/search/presentation/views/search_view.dart';
 
 class HomeViewBody extends StatelessWidget {
   const HomeViewBody({super.key});
@@ -16,33 +15,16 @@ class HomeViewBody extends StatelessWidget {
   Widget build(BuildContext context) {
     return SafeArea(
       child: Scaffold(
-        appBar:  AppBar(
-          backgroundColor: kAppBarColor,
-          elevation: 0,
-          title: const Text('New Trend', style: TextStyle(color: Colors.black)),
-          centerTitle: true,
-          actions: [
-            IconButton(
-              onPressed: () {
-                Get.to(
-                  () => SearchView(),
-                  duration: kTranstionDuration,
-                  transition: Transition.circularReveal,
-                );
-              },
-              icon: const Icon(
-                FontAwesomeIcons.magnifyingGlass,
-                color: Colors.black,
-              ),
-            ),
-          ],
-        ),
-        body: Padding(
-          padding: const EdgeInsets.symmetric(horizontal: 8),
-          child: Column(
-            crossAxisAlignment: CrossAxisAlignment.start,
-            children: [
-              SizedBox(
+        
+        body: Column(
+          
+          crossAxisAlignment: CrossAxisAlignment.start,
+          children: [
+            CustomAppBar(text: 'New Trend',),
+           const SizedBox(height: 10,),
+            Padding(
+              padding: const EdgeInsets.symmetric(horizontal: 8),
+              child: SizedBox(
                 height: MediaQuery.of(context).size.height * .2,
                 child: ListView(
                   children: [
@@ -59,17 +41,23 @@ class HomeViewBody extends StatelessWidget {
                   ],
                 ),
               ),
-              SizedBox(height: 30),
-              Text(
+            ),
+            SizedBox(height: 30),
+            Padding(
+              padding: const EdgeInsets.symmetric(horizontal: 8),
+              child: Text(
                 "Best Seller ",
                 style: TextStyle(fontSize: 20, fontWeight: FontWeight.bold),
               ),
-              BestSallerGridView(),
-
-              Spacer(),
-             
-            ],
-          ),
+            ),
+            Padding(
+              padding: const EdgeInsets.symmetric(horizontal: 8),
+              child: BestSallerGridView(),
+            ),
+        
+            Spacer(),
+           
+          ],
         ),
       ),
     );

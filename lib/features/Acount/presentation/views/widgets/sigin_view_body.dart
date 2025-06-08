@@ -14,6 +14,7 @@ class SiginViewBody extends StatelessWidget {
   Widget build(BuildContext context) {
     return SafeArea(
       child: Scaffold(
+        backgroundColor: kPrimaryColor,
         body: SizedBox(
           height: double.infinity,
           width: double.infinity,

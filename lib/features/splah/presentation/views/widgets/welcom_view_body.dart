@@ -18,7 +18,23 @@ class WelcomViewBody extends StatelessWidget {
           mainAxisAlignment: MainAxisAlignment.start,
           crossAxisAlignment: CrossAxisAlignment.stretch,
           children: [
-            Image.asset(AssetsData.logo),
+            SizedBox(height: 29,),
+            SizedBox(height: 200,
+              child: AspectRatio(
+                aspectRatio: 2.7 / 4,
+                child: Container(
+                  
+                  decoration: BoxDecoration(
+                    color: kAppBarColor,
+                    borderRadius: BorderRadius.circular(16),
+                    image: const DecorationImage(
+                      fit: BoxFit.contain,
+                      image: AssetImage(AssetsData.logo),
+                    ),
+                  ),
+                ),
+              ),
+            ),
             SizedBox(height: 33),
             const Text(
               textAlign: TextAlign.center,
