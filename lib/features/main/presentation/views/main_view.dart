@@ -2,7 +2,7 @@ import 'package:convex_bottom_bar/convex_bottom_bar.dart';
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:onestopshop/constents.dart';
-import 'package:onestopshop/features/Home/data/presentation/views/home_view.dart';
+import 'package:onestopshop/features/Home/presentation/views/home_view.dart';
 import 'package:onestopshop/features/cart/presentation/views/cart_view.dart';
 import 'package:onestopshop/features/profile/presentation/views/profile_view.dart';
 

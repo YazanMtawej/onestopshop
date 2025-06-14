@@ -4,7 +4,7 @@ import 'package:get/get_navigation/get_navigation.dart';
 import 'package:get/state_manager.dart';
 import 'package:onestopshop/assets.dart';
 import 'package:onestopshop/constents.dart';
-import 'package:onestopshop/features/Home/data/presentation/views/product_detaills_view.dart';
+import 'package:onestopshop/features/Home/presentation/views/product_detaills_view.dart';
 
 class CustomCard extends StatelessWidget {
    const CustomCard({

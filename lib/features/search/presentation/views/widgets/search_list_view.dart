@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:onestopshop/features/Home/data/presentation/views/widgets/perfum_list_view_item.dart';
+import 'package:onestopshop/features/Home/presentation/views/widgets/perfum_list_view_item.dart';
 
 class SearchListView extends StatelessWidget {
   const SearchListView({super.key});

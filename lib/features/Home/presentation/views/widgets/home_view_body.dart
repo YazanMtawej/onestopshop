@@ -3,10 +3,10 @@ import 'package:get/get_navigation/get_navigation.dart';
 import 'package:get/utils.dart';
 import 'package:onestopshop/assets.dart';
 import 'package:onestopshop/constents.dart';
-import 'package:onestopshop/features/Home/data/presentation/views/perfume_view.dart';
+import 'package:onestopshop/features/Home/presentation/views/perfume_view.dart';
 import 'package:onestopshop/core/utils/widgets/custom_app_bar.dart';
-import 'package:onestopshop/features/Home/data/presentation/views/widgets/best_seller_grid_view.dart';
-import 'package:onestopshop/features/Home/data/presentation/views/widgets/custom_product_image.dart';
+import 'package:onestopshop/features/Home/presentation/views/widgets/best_seller_grid_view.dart';
+import 'package:onestopshop/features/Home/presentation/views/widgets/custom_product_image.dart';
 
 class HomeViewBody extends StatelessWidget {
   const HomeViewBody({super.key});

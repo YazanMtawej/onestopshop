@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:onestopshop/features/Home/data/presentation/views/widgets/pefume_view_body.dart';
+import 'package:onestopshop/features/Home/presentation/views/widgets/pefume_view_body.dart';
 
 class PerfumeView extends StatelessWidget {
   const PerfumeView({super.key});

@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:onestopshop/features/Home/data/presentation/views/widgets/custom_card.dart';
+import 'package:onestopshop/features/Home/presentation/views/widgets/custom_card.dart';
 
 class BestSallerGridView extends StatelessWidget {
   const BestSallerGridView({super.key});
