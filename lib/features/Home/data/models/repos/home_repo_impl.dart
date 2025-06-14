@@ -1,13 +1,25 @@
 import 'package:dartz/dartz.dart';
 import 'package:onestopshop/core/errors/failure.dart';
+import 'package:onestopshop/core/utils/widgets/api_service.dart';
 import 'package:onestopshop/features/Home/data/models/perfume_model.dart';
 import 'package:onestopshop/features/Home/data/models/repos/home_repo.dart';
 
 class HomeRepoImpl implements HomeRepo{
+  final ApiService apiService;
+  HomeRepoImpl(this.apiService);
   @override
-  Future<Either<Failure, List<PerfumeModel>>> featchBestSellerPerfume() {
-    // TODO: implement featchBestSellerPerfume
-    throw UnimplementedError();
+  Future<Either<Failure, List<PerfumeModel>>> featchBestSellerPerfume() async{
+   try {
+  var data= await apiService.get(endPoint: '');
+  List<PerfumeModel> perfume=[];
+  for(var item in data['Products']){
+    perfume.add(PerfumeModel.fromJson(item));
+
+  }
+  return right(perfume);
+} on Exception catch (e) {
+  return left(ServerFailure());
+}
   }
 
   @override
