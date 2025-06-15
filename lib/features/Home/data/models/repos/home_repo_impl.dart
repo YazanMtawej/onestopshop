@@ -1,7 +1,7 @@
 import 'package:dartz/dartz.dart';
 import 'package:dio/dio.dart';
 import 'package:onestopshop/core/errors/failure.dart';
-import 'package:onestopshop/core/utils/widgets/api_service.dart';
+import 'package:onestopshop/core/utils/api_service.dart';
 import 'package:onestopshop/features/Home/data/models/perfume_model.dart';
 import 'package:onestopshop/features/Home/data/models/repos/home_repo.dart';
 

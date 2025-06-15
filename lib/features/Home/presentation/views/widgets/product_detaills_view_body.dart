@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
-import 'package:onestopshop/assets.dart';
+import 'package:onestopshop/core/utils/assets.dart';
 import 'package:onestopshop/constents.dart';
 import 'package:onestopshop/features/Home/presentation/views/widgets/action_detaills_button.dart';
 import 'package:onestopshop/features/Home/presentation/views/widgets/custom_product_image.dart';

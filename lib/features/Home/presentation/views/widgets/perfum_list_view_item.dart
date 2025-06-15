@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:get/route_manager.dart';
-import 'package:onestopshop/assets.dart';
+import 'package:onestopshop/core/utils/assets.dart';
 import 'package:onestopshop/features/Home/presentation/views/product_detaills_view.dart';
 import 'package:onestopshop/features/Home/presentation/views/widgets/perfume_rating.dart';
 

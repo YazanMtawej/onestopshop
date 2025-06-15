@@ -22,7 +22,7 @@ class LoginViewBody extends StatelessWidget {
           child: Stack(
             children: [
               Container(
-                margin: const EdgeInsets.symmetric(vertical: 40),
+                margin: const EdgeInsets.symmetric(vertical: 30),
                 width: double.infinity,
                 height: double.infinity,
                 child: Column(
@@ -40,7 +40,7 @@ class LoginViewBody extends StatelessWidget {
 
                     TextFieldPassword(),
 
-                    const SizedBox(height: 3),
+                    const SizedBox(height: 5),
                     ElevatedButton(
                       onPressed: () {
                          Get.to(()=> MainView(),transition: Transition.leftToRight,duration: kTranstionDuration);
@@ -50,7 +50,7 @@ class LoginViewBody extends StatelessWidget {
                         padding: WidgetStateProperty.all(
                           const EdgeInsets.symmetric(
                             horizontal: 99,
-                            vertical: 20,
+                            vertical: 14,
                           ),
                         ),
                         shape: WidgetStateProperty.all(

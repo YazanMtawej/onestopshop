@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:get/get_core/src/get_main.dart';
 import 'package:get/get_navigation/get_navigation.dart';
-import 'package:onestopshop/assets.dart';
+import 'package:onestopshop/core/utils/assets.dart';
 import 'package:onestopshop/constents.dart';
 import 'package:onestopshop/features/notification/model/view/test.dart';
 

@@ -52,7 +52,7 @@ class SiginViewBody extends StatelessWidget {
                         padding: WidgetStateProperty.all(
                           const EdgeInsets.symmetric(
                             horizontal: 99,
-                            vertical: 20,
+                            vertical: 14,
                           ),
                         ),
                         shape: WidgetStateProperty.all(
