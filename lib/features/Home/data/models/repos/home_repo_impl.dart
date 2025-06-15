@@ -1,4 +1,5 @@
 import 'package:dartz/dartz.dart';
+import 'package:dio/dio.dart';
 import 'package:onestopshop/core/errors/failure.dart';
 import 'package:onestopshop/core/utils/widgets/api_service.dart';
 import 'package:onestopshop/features/Home/data/models/perfume_model.dart';
@@ -18,8 +19,11 @@ class HomeRepoImpl implements HomeRepo{
   }
   return right(perfume);
 } on Exception catch (e) {
-  return left(ServerFailure());
-}
+ if (e is DioException){
+  return left(ServerFailure.fromDioError(e));
+  
+}return left( ServerFailure(e.toString()));
+  }
   }
 
   @override
