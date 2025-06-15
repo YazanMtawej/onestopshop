@@ -12,7 +12,7 @@ final class FeaturedPerfumeLoading extends FeaturedPerfumeState {}
 final class FeaturedPerfumeSuccess extends FeaturedPerfumeState {
   final List<PerfumeModel> perfume;
 
- const FeaturedPerfumeSuccess({required this.perfume});
+ const FeaturedPerfumeSuccess(this.perfume);
 }
 final class FeaturedPerfumeFailure extends FeaturedPerfumeState {
   final String errMessage;

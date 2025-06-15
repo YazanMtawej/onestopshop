@@ -19,7 +19,7 @@ class FeaturedPerfumeCubit extends Cubit<FeaturedPerfumeState> {
         emit(FeaturedPerfumeFailure(failure.errMessage));
       },
       (perfume) {
-        emit(FeaturedPerfumeSuccess(perfume: perfume));
+        emit(FeaturedPerfumeSuccess( perfume));
       },
     );
   }

@@ -12,10 +12,10 @@ final class BestSellerPerfumeLoading extends BestSellerPerfumeState {}
 final class BestSellerPerfumeSuccess extends BestSellerPerfumeState {
   final List<PerfumeModel> perfume;
 
- const BestSellerPerfumeSuccess({required this.perfume});
+ const BestSellerPerfumeSuccess( this.perfume);
 }
 final class BestSellerPerfumeFailure extends BestSellerPerfumeState {
   final String errMessage;
 
-const  BestSellerPerfumeFailure({required this.errMessage}); 
+const  BestSellerPerfumeFailure( this.errMessage); 
 }
