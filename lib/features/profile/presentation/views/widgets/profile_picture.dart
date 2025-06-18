@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:onestopshop/core/utils/assets.dart';
+import 'package:onestopshop/assets.dart';
 import 'package:onestopshop/constents.dart';
 
 class ProfilePicture extends StatelessWidget {

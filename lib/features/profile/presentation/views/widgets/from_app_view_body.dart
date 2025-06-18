@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:onestopshop/constents.dart';
+import 'package:onestopshop/core/utils/widgets/custom_card_text.dart';
 import 'package:onestopshop/core/utils/widgets/photo_design.dart';
 
 class FromAppViewBody extends StatelessWidget {
@@ -19,28 +20,7 @@ class FromAppViewBody extends StatelessWidget {
         ),
         body: ListView(
           children: [
-            Card(
-              elevation: 4,
-              shape: RoundedRectangleBorder(
-                borderRadius: BorderRadius.circular(12),
-              ),
-              margin: const EdgeInsets.all(16),
-              child: Padding(
-                padding: const EdgeInsets.all(16.0),
-                child: Column(
-                  crossAxisAlignment: CrossAxisAlignment.start,
-                  children: [
-                    Text(
-                      'About the App',
-                      style: TextStyle(
-                        fontSize: 22,
-                        fontWeight: FontWeight.bold,
-                        color: Colors.brown[800],
-                      ),
-                    ),
-                    const SizedBox(height: 12),
-                    const Text(
-                      ''' Welcome to our Perfume Store App (Stop one shop). your ultimate destination for discovering and purchasing premium fragrances from around the world. Our app is designed to offer a seamless and enjoyable shopping experience for perfume lovers of all kinds.
+            CustomCardText(title: 'About the App',text:  ''' Welcome to our Perfume Store App (Stop one shop). your ultimate destination for discovering and purchasing premium fragrances from around the world. Our app is designed to offer a seamless and enjoyable shopping experience for perfume lovers of all kinds.
           
       What We Offer:
           
@@ -58,15 +38,7 @@ class FromAppViewBody extends StatelessWidget {
           
       Thank you for choosing us. 
           
-      we hope you enjoy your fragrance journey!''',
-                      style: TextStyle(fontSize: 16, height: 1.5),
-                    ),
-                   
-                  ],
-                   
-                ),
-              ),
-            ),
+      we hope you enjoy your fragrance journey!''',colorCard: Colors.brown.shade200,),
       
              PhotoDesign(),
           ],

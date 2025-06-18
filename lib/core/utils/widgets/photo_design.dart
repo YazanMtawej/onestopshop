@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:onestopshop/core/utils/assets.dart';
+import 'package:onestopshop/assets.dart';
+
 
 class PhotoDesign extends StatelessWidget {
   const PhotoDesign({super.key});

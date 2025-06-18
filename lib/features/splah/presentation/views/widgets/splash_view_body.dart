@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:get/get_navigation/get_navigation.dart';
 import 'package:get/utils.dart';
-import 'package:onestopshop/core/utils/assets.dart';
+import 'package:onestopshop/assets.dart';
 import 'package:onestopshop/constents.dart';
 import 'package:onestopshop/features/splah/presentation/views/welcom_view.dart';
 import 'package:onestopshop/features/splah/presentation/views/widgets/sliding_text.dart';
