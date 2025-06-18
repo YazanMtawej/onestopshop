@@ -12,7 +12,7 @@ class CartListView extends StatelessWidget {
         itemBuilder: (context, index) {
           return Padding(
             padding: const EdgeInsets.symmetric(vertical: 15,horizontal: 15),
-            child: const PerfumeListViewItem(),
+            child: const PerfumeListViewItem(imageUrl: '',title: '',subtitle: '',price: '',rate: '',),
           );
         },
       

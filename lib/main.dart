@@ -14,6 +14,7 @@ import 'package:onestopshop/services/notification_service.dart';
 void main() async{
   WidgetsFlutterBinding.ensureInitialized();
   await NotificationService().init();
+  setup();
   runApp(
     DevicePreview(
       enabled: !kReleaseMode,
@@ -32,12 +33,12 @@ class OneStopShop extends StatelessWidget {
         BlocProvider(
           create:
               (context) =>
-                  FeaturedPerfumeCubit(getIt.get<HomeRepoImpl>()),
+                  FeaturedPerfumeCubit(getIt.get<HomeRepoImpl>())..featchFeaturePerfume()
         ),
          BlocProvider(
           create:
               (context) =>
-                  BestSellerPerfumeCubit(getIt.get<HomeRepoImpl>()),
+                  BestSellerPerfumeCubit(getIt.get<HomeRepoImpl>())..featchBestSellerPerfume(),
         ),
       ],
       child: GetMaterialApp(

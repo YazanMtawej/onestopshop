@@ -1,11 +1,16 @@
 import 'package:flutter/material.dart';
 import 'package:get/route_manager.dart';
-import 'package:onestopshop/core/utils/assets.dart';
 import 'package:onestopshop/features/Home/presentation/views/product_detaills_view.dart';
 import 'package:onestopshop/features/Home/presentation/views/widgets/perfume_rating.dart';
 
 class PerfumeListViewItem extends StatelessWidget {
-  const PerfumeListViewItem({super.key});
+  const PerfumeListViewItem({super.key, required this.imageUrl, required this.title, required this.subtitle, required this.price, required this.rate});
+
+final String imageUrl;
+final String title;
+final String subtitle;
+final String price;
+final String rate;
 
   @override
   Widget build(BuildContext context) {
@@ -26,9 +31,9 @@ class PerfumeListViewItem extends StatelessWidget {
               child: Container(
                 decoration: BoxDecoration(
                   borderRadius: BorderRadius.circular(16),
-                  image: const DecorationImage(
+                  image:  DecorationImage(
                     fit: BoxFit.fill,
-                    image: AssetImage(AssetsData.p2),
+                    image: NetworkImage(imageUrl),
                   ),
                 ),
               ),
@@ -41,8 +46,8 @@ class PerfumeListViewItem extends StatelessWidget {
                   const SizedBox(height: 12),
                   SizedBox(
                     width: MediaQuery.of(context).size.width * .5,
-                    child: const Text(
-                      'Dark City',
+                    child:  Text(
+                      title,
                       maxLines: 2,
                       overflow: TextOverflow.ellipsis,
                       style: TextStyle(
@@ -52,13 +57,13 @@ class PerfumeListViewItem extends StatelessWidget {
                     ),
                   ),
                   const SizedBox(height: 3),
-                  const Text('detals', style: TextStyle(fontSize: 14)),
+                   Text(subtitle, style: TextStyle(fontSize: 14)),
                   const SizedBox(height: 3),
                   Row(
-                    children: const [
-                      Text("price", style: TextStyle(fontSize: 20)),
-                      Spacer(),
-                      PerfumeRating(),
+                    children:  [
+                      Text(price, style: TextStyle(fontSize: 20)),
+                    const  Spacer(),
+                      PerfumeRating(rate: rate,),
                     ],
                   ),
                 ],

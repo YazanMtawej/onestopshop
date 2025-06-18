@@ -51,7 +51,7 @@ class PerfumeModel extends Equatable {
 
 	factory PerfumeModel.fromJson(Map<String, dynamic> json) => PerfumeModel(
 				id: json['id'] as int?,
-				reviews: json['reviews'] as List<dynamic>?,
+				reviews: (json['reviews'] as List<dynamic>?)?.cast<String>(),
 				name: json['name'] as String?,
 				discription: json['discription'] as String?,
 				price: json['price'] as String?,

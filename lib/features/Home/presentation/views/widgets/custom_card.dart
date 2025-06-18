@@ -1,75 +1,103 @@
 import 'package:flutter/material.dart';
-import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:get/get_navigation/get_navigation.dart';
 import 'package:get/state_manager.dart';
-import 'package:onestopshop/core/utils/assets.dart';
 import 'package:onestopshop/constents.dart';
 import 'package:onestopshop/features/Home/presentation/views/product_detaills_view.dart';
 
-class CustomCard extends StatelessWidget {
-   const CustomCard({
+class CustomCard extends StatefulWidget {
+  const CustomCard({
     super.key,
+    required this.title,
+    required this.price,
+    required this.imgeUrl,
   });
 
-  
+  final String title;
+  final String price;
+  final String imgeUrl;
 
+  @override
+  State<CustomCard> createState() => _CustomCardState();
+}
+
+class _CustomCardState extends State<CustomCard> {
+  bool isFavorite=false;
+  void toggleFavorite(){
+    setState(() {
+      isFavorite=!isFavorite;
+    });
+  }
   @override
   Widget build(BuildContext context) {
     return GestureDetector(
-      onTap: (){
-      //  Navigator.pushNamed(context, UpdateProductPage.id,arguments: product);
-      Get.to(()=> ProductDetaillsView(),duration: kTranstionDuration,transition: Transition.fade);
+      onTap: () {
+        //  Navigator.pushNamed(context, UpdateProductPage.id,arguments: product);
+        Get.to(
+          () => ProductDetaillsView(),
+          duration: kTranstionDuration,
+          transition: Transition.fade,
+        );
       },
       child: Container(
-       color: kButtonColor.shade200,
+        color: kButtonColor.shade200,
         child: Stack(
-          
-          clipBehavior:Clip.none ,
+          clipBehavior: Clip.none,
           children: [
             Container(
-             
               decoration: BoxDecoration(
                 boxShadow: [
                   BoxShadow(
                     blurRadius: 40,
-                    
+
                     color: kCardColor,
                     spreadRadius: 0,
-                    offset: const Offset(10, 10)
+                    offset: const Offset(10, 10),
                   ),
-                ]
+                ],
               ),
               child: Card(
                 elevation: 10,
                 child: Padding(
-                  
-                  padding: const EdgeInsets.symmetric(horizontal: 16,vertical: 16),
+                  padding: const EdgeInsets.symmetric(
+                    horizontal: 16,
+                    vertical: 16,
+                  ),
                   child: Column(
                     mainAxisAlignment: MainAxisAlignment.end,
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
                       Row(
                         children: [
-                          const Text(
-                            'plane',
-                            style: TextStyle(color: Colors.grey, fontSize: 16),
+                          Expanded(
+                            child: Text(
+                              widget.title,
+                              style: TextStyle(
+                                color: kTextColor,
+                                fontSize: 12,
+                                fontWeight: FontWeight.bold,
+                              ),
+                            ),
                           ),
                         ],
                       ),
-                      const SizedBox(height: 3,),
+                      const SizedBox(height: 3),
                       Row(
                         mainAxisAlignment: MainAxisAlignment.spaceBetween,
                         children: [
-                          const Text(
-                           r'$' '400',
-                            style: TextStyle(color: Colors.grey, fontSize: 16),
+                          Text(
+                            widget.price,
+                            style: TextStyle(color: kTextColor, fontSize: 14),
                           ),
                           IconButton(
-                              onPressed: () {},
-                              icon: const Icon(
-                                FontAwesomeIcons.heart,
-                                color: Colors.red,
-                              ))
+                            hoverColor:kIconColor.shade400,
+                            highlightColor:Colors.redAccent,
+                         
+                            onPressed: () {toggleFavorite();},
+                            icon:  Icon( isFavorite? Icons.favorite:Icons.favorite_border
+                             ,
+                              color: isFavorite? Colors.red:Colors.grey,
+                            ),
+                          ),
                         ],
                       ),
                     ],
@@ -77,24 +105,25 @@ class CustomCard extends StatelessWidget {
                 ),
               ),
             ),
-        
+
             Positioned(
               right: -7,
               top: -50,
-                  
-              child:  Container(
-                height: 110,
-                width: 90,
-            decoration: BoxDecoration(
-              borderRadius: BorderRadius.circular(16),
-              image: const DecorationImage(
-                fit: BoxFit.fill,
-                image: AssetImage(AssetsData.p1),)
-            ),
-                    ),
+
+              child: Container(
+                height: 90,
+                width: 75,
+                decoration: BoxDecoration(
+                  borderRadius: BorderRadius.circular(16),
+                  image:  DecorationImage(
+                    fit: BoxFit.fill,
+                    image: NetworkImage(widget.imgeUrl),
                   ),
-        ],
-          ),
+                ),
+              ),
+            ),
+          ],
+        ),
       ),
     );
   }

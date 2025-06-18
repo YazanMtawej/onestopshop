@@ -1,4 +1,8 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:onestopshop/core/utils/widgets/custom_error.dart';
+import 'package:onestopshop/core/utils/widgets/custom_loading_indicator.dart';
+import 'package:onestopshop/features/Home/presentation/view_models/featured_perfume_cubit/featured_perfume_cubit.dart';
 import 'package:onestopshop/features/Home/presentation/views/widgets/perfum_list_view_item.dart';
 
 class PerfumeListView extends StatelessWidget {
@@ -6,17 +10,32 @@ class PerfumeListView extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return  Expanded(
-      child: ListView.builder(
-        itemCount: 10,
-        itemBuilder: (context, index) {
-          return Padding(
-            padding: const EdgeInsets.symmetric(vertical: 15),
-            child: const PerfumeListViewItem(),
+    return BlocBuilder<FeaturedPerfumeCubit, FeaturedPerfumeState>(
+      builder: (context, state) {
+        if (state is FeaturedPerfumeSuccess) {
+          return Expanded(
+            child: ListView.builder(
+              itemCount: state.perfume.length,
+              itemBuilder: (context, index) {
+                return Padding(
+                  padding: const EdgeInsets.symmetric(vertical: 15),
+                  child: PerfumeListViewItem(
+                    imageUrl:  'https://media.parfumo.com/perfumes/7e/7ebc7f_godimenta-coreterno_1200.jpg?width=720&aspect_ratio=1:1',//state.perfume[index].picture
+                    title: state.perfume[index].name!,
+                    subtitle: state.perfume[index].category!,
+                    price: state.perfume[index].price!,
+                    rate: state.perfume[index].rating!,
+                  ),
+                );
+              },
+            ),
           );
-        },
-      
-      ),
+        } else if (state is FeaturedPerfumeFailure) {
+          return CustomError(errMessage: state.errMessage);
+        } else {
+          return const CustomLoadingIndicator();
+        }
+      },
     );
   }
 }

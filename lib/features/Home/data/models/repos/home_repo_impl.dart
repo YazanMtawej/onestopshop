@@ -10,13 +10,12 @@ class HomeRepoImpl implements HomeRepo{
   HomeRepoImpl(this.apiService);
   @override
   Future<Either<Failure, List<PerfumeModel>>> featchBestSellerPerfume() async{
-   try {
-  var data= await apiService.get(endPoint: '');
-  List<PerfumeModel> perfume=[];
-  for(var item in data['Products']){
-    perfume.add(PerfumeModel.fromJson(item));
-
-  }
+   try { List<PerfumeModel> perfume=[];
+  var data= await apiService.get(endPoint: 'products');
+  print(data);
+  var products=data[' Products']as List;
+  perfume = products.map((item)=> PerfumeModel.fromJson(item)).toList();
+  
   return right(perfume);
 } on Exception catch (e) {
  if (e is DioException){
@@ -29,12 +28,12 @@ class HomeRepoImpl implements HomeRepo{
   @override
   Future<Either<Failure, List<PerfumeModel>>> featchFeaturePerfume() async{
     try {
-  var data= await apiService.get(endPoint: '');
-  List<PerfumeModel> perfume=[];
-  for(var item in data['Products']){
-    perfume.add(PerfumeModel.fromJson(item));
-
-  }
+      List<PerfumeModel> perfume=[];
+  var data= await apiService.get(endPoint: 'products');
+  print(data);
+  var products=data[' Products']as List;
+  perfume = products.map((item)=> PerfumeModel.fromJson(item)).toList();
+  
   return right(perfume);
 } on Exception catch (e) {
  if (e is DioException){
