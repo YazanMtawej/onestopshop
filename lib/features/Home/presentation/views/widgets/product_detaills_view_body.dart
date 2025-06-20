@@ -1,16 +1,20 @@
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
+import 'package:get/get_navigation/get_navigation.dart';
+import 'package:get/utils.dart';
 import 'package:onestopshop/assets.dart';
 import 'package:onestopshop/constents.dart';
 import 'package:onestopshop/core/utils/widgets/custom_card_text.dart';
 import 'package:onestopshop/features/Home/presentation/views/widgets/action_detaills_button.dart';
 import 'package:onestopshop/features/Home/presentation/views/widgets/custom_product_image.dart';
+import 'package:onestopshop/features/cart/presentation/views/cart_view.dart';
 
 class ProducDetaillstViewBody extends StatelessWidget {
   const ProducDetaillstViewBody({super.key});
 
   @override
   Widget build(BuildContext context) {
+    
     var width = MediaQuery.of(context).size.width;
     return SafeArea(
       child: Scaffold(
@@ -21,7 +25,7 @@ class ProducDetaillstViewBody extends StatelessWidget {
           centerTitle: true,
           actions: [
             IconButton(
-              onPressed: () {},
+              onPressed: () {Get.to(()=>CartView(),transition: Transition.fade,duration: kTranstionDuration);},
               icon: const Icon(FontAwesomeIcons.cartPlus, color: kTextColor),
             ),
           ],

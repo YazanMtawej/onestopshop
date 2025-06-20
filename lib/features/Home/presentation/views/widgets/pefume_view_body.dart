@@ -1,7 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
+import 'package:get/get_core/src/get_main.dart';
+import 'package:get/get_navigation/get_navigation.dart';
 import 'package:onestopshop/constents.dart';
 import 'package:onestopshop/features/Home/presentation/views/widgets/perfume_list_view.dart';
+import 'package:onestopshop/features/cart/presentation/views/cart_view.dart';
 
 class PerfumeViewBody extends StatelessWidget {
   const PerfumeViewBody({super.key});
@@ -16,7 +19,7 @@ class PerfumeViewBody extends StatelessWidget {
           centerTitle: true,
           actions: [
             IconButton(
-              onPressed: () {},
+              onPressed: () {Get.to(()=>CartView(),transition: Transition.fade,duration: kTranstionDuration);},
               icon: const Icon(FontAwesomeIcons.cartPlus, color: Colors.black),
             ),
           ],
