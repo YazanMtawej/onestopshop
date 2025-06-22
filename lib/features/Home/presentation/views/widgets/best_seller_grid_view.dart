@@ -29,7 +29,7 @@ class BestSallerGridView extends StatelessWidget {
                 mainAxisSpacing: 100,
               ),
               itemBuilder: (context, index) {
-                return CustomCard(title: state.perfume[index].name!,price: state.perfume[index].price!,imgeUrl: 'https://media.parfumo.com/perfumes/7e/7ebc7f_godimenta-coreterno_1200.jpg?width=720&aspect_ratio=1:1');//??state.perfume[index].picture,);
+                return CustomCard(perfume: state.perfume[index],);
               },
             ),
           ),

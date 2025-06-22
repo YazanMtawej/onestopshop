@@ -1,20 +1,18 @@
+import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get_navigation/get_navigation.dart';
 import 'package:get/state_manager.dart';
 import 'package:onestopshop/constents.dart';
+import 'package:onestopshop/features/Home/data/models/perfume_model.dart';
 import 'package:onestopshop/features/Home/presentation/views/product_detaills_view.dart';
 
 class CustomCard extends StatefulWidget {
   const CustomCard({
     super.key,
-    required this.title,
-    required this.price,
-    required this.imgeUrl,
+    required this.perfume, 
   });
 
-  final String title;
-  final String price;
-  final String imgeUrl;
+  final PerfumeModel perfume;
 
   @override
   State<CustomCard> createState() => _CustomCardState();
@@ -33,7 +31,7 @@ class _CustomCardState extends State<CustomCard> {
       onTap: () {
         //  Navigator.pushNamed(context, UpdateProductPage.id,arguments: product);
         Get.to(
-          () => ProductDetaillsView(),
+          () => ProductDetaillsView(),arguments:widget.perfume ,
           duration: kTranstionDuration,
           transition: Transition.fade,
         );
@@ -70,7 +68,7 @@ class _CustomCardState extends State<CustomCard> {
                         children: [
                           Expanded(
                             child: Text(
-                              widget.title,
+                            widget.perfume.name!  ,
                               style: TextStyle(
                                 color: kTextColor,
                                 fontSize: 12,
@@ -85,7 +83,7 @@ class _CustomCardState extends State<CustomCard> {
                         mainAxisAlignment: MainAxisAlignment.spaceBetween,
                         children: [
                           Text(
-                            widget.price,
+                            widget.perfume.price!,
                             style: TextStyle(color: kTextColor, fontSize: 14),
                           ),
                           IconButton(
@@ -109,18 +107,15 @@ class _CustomCardState extends State<CustomCard> {
             Positioned(
               right: -7,
               top: -50,
-
-              child: Container(
-                height: 90,
-                width: 75,
-                decoration: BoxDecoration(
-                  borderRadius: BorderRadius.circular(16),
-                  image:  DecorationImage(
-                    fit: BoxFit.fill,
-                    image: NetworkImage(widget.imgeUrl),
-                  ),
-                ),
-              ),
+   child:  SizedBox(
+    height: 90,
+    width: 75,
+     child: ClipRRect(
+      borderRadius: BorderRadius.circular(16),
+      child: CachedNetworkImage(imageUrl:  widget.perfume.picture!,fit: BoxFit.fill,)),
+   ),
+                  
+              
             ),
           ],
         ),

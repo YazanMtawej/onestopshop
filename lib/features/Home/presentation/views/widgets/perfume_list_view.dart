@@ -20,11 +20,7 @@ class PerfumeListView extends StatelessWidget {
                 return Padding(
                   padding: const EdgeInsets.symmetric(vertical: 15),
                   child: PerfumeListViewItem(
-                    imageUrl:  'https://media.parfumo.com/perfumes/7e/7ebc7f_godimenta-coreterno_1200.jpg?width=720&aspect_ratio=1:1',//state.perfume[index].picture
-                    title: state.perfume[index].name!,
-                    subtitle: state.perfume[index].category!,
-                    price: state.perfume[index].price!,
-                    rate: state.perfume[index].rating!,
+                      perfume: state.perfume[index],
                   ),
                 );
               },

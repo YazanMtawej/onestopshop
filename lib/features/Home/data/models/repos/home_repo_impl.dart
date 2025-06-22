@@ -12,7 +12,7 @@ class HomeRepoImpl implements HomeRepo{
   Future<Either<Failure, List<PerfumeModel>>> featchBestSellerPerfume() async{
    try { List<PerfumeModel> perfume=[];
   var data= await apiService.get(endPoint: 'products');
-  print(data);
+  
   var products=data[' Products']as List;
   perfume = products.map((item)=> PerfumeModel.fromJson(item)).toList();
   
@@ -30,7 +30,7 @@ class HomeRepoImpl implements HomeRepo{
     try {
       List<PerfumeModel> perfume=[];
   var data= await apiService.get(endPoint: 'products');
-  print(data);
+  
   var products=data[' Products']as List;
   perfume = products.map((item)=> PerfumeModel.fromJson(item)).toList();
   

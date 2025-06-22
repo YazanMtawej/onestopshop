@@ -1,20 +1,22 @@
+import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:get/get_navigation/get_navigation.dart';
 import 'package:get/utils.dart';
-import 'package:onestopshop/assets.dart';
 import 'package:onestopshop/constents.dart';
 import 'package:onestopshop/core/utils/widgets/custom_card_text.dart';
+import 'package:onestopshop/core/utils/widgets/custom_loading_indicator.dart';
+import 'package:onestopshop/features/Home/data/models/perfume_model.dart';
+
 import 'package:onestopshop/features/Home/presentation/views/widgets/action_detaills_button.dart';
-import 'package:onestopshop/features/Home/presentation/views/widgets/custom_product_image.dart';
+import 'package:onestopshop/features/Home/presentation/views/widgets/perfume_rating.dart';
 import 'package:onestopshop/features/cart/presentation/views/cart_view.dart';
 
 class ProducDetaillstViewBody extends StatelessWidget {
-  const ProducDetaillstViewBody({super.key});
-
+  const ProducDetaillstViewBody({super.key, required this.perfume});
+  final PerfumeModel perfume;
   @override
   Widget build(BuildContext context) {
-    
     var width = MediaQuery.of(context).size.width;
     return SafeArea(
       child: Scaffold(
@@ -25,62 +27,88 @@ class ProducDetaillstViewBody extends StatelessWidget {
           centerTitle: true,
           actions: [
             IconButton(
-              onPressed: () {Get.to(()=>CartView(),transition: Transition.fade,duration: kTranstionDuration);},
+              onPressed: () {
+                Get.to(
+                  () => CartView(),
+                  //     transition: Transition.fade,
+                  duration: kTranstionDuration,
+                );
+              },
               icon: const Icon(FontAwesomeIcons.cartPlus, color: kTextColor),
             ),
           ],
         ),
-        body: Column(
+        body: ListView(
           children: [
             Padding(
               padding: EdgeInsets.symmetric(
                 horizontal: width * .17,
                 vertical: 12,
               ),
-              child: CustomProductImage(image: AssetsData.p3),
+              child: SizedBox(
+                height: MediaQuery.of(context).size.height * .24,
+                child: ClipRRect(
+                  borderRadius: BorderRadius.circular(16),
+                  child: AspectRatio(
+                    aspectRatio: 2.6 / 4,
+                    child: CachedNetworkImage(
+                      fit: BoxFit.fill,
+                      imageUrl: perfume.picture!,
+                      placeholder:
+                          (context, url) => const CustomLoadingIndicator(),
+                      errorWidget:
+                          (context, url, error) => const Icon(Icons.error),
+                    ),
+                  ),
+                ),
+              ),
             ),
             Text(
-              'Detaills',
+              perfume.name!,
+              textAlign: TextAlign.center,
               style: TextStyle(
                 color: kTextColor,
-                fontSize: 27,
+                fontSize: 23,
                 fontWeight: FontWeight.bold,
               ),
             ),
-            Text('Detaills', style: TextStyle(color: kTextColor, fontSize: 22)),
-            Text('Detaills', style: TextStyle(color: kTextColor, fontSize: 16)),
+            Text(
+              perfume.category!,
+              textAlign: TextAlign.center,
+              style: TextStyle(color: kTextColor, fontSize: 20),
+            ),
+            Text(
+              perfume.price!,
+              textAlign: TextAlign.center,
+              style: TextStyle(color: kTextColor, fontSize: 20),
+            ),
+            
+            Padding(
+              padding: const EdgeInsets.symmetric(horizontal: 120,vertical: 4),
+              child: PerfumeRating(rate: perfume.rating!),
+            ),
             SizedBox(
               width: double.infinity,
-              height: MediaQuery.of(context).size.height * .30,
+              height: MediaQuery.of(context).size.height * .31,
               child: ListView(
                 children: [
                   Expanded(
                     child: CustomCardText(
                       title: 'Details',
-                      text:
-                         ''' flowers, spices, or synthetic aromatic compounds, used to give a pleasant scent to the body or clothing. 
-Types of Perfumes:
-Parfum (Extrait de Parfum): Highest concentration of fragrance oils, typically 20-40%, with the longest lasting scent.
-Eau de Parfum (EdP): Contains 15-20% fragrance oils, a popular choice for everyday wear.
-Eau de Toilette (EdT): Features 5-15% fragrance oils, often considered a lighter option.
-Eau de Cologne (EdC): Lower concentration of fragrance oils, typically 2-8%, often used as a splash-on.
-Eau Fraiche: The lowest concentration of fragrance oils, usually 1-3%, offering a very light and subtle scent. 
-Other terms related to perfume:
-Fragrance: A general term for a pleasant scent. 
-Scent: Another term for smell or fragrance. 
-Aroma: A distinctive, often pleasant smell. 
-Concentration: The proportion of fragrance oils in a perfume. 
-Notes: The different scents that can be detected in a perfume over time, including top notes (initial scent), middle notes (heart of the perfume), and base notes (long-lasting scent). 
-How to describe a perfume:
-Sensory words:
-Use words that evoke the sense of smell, such as floral, woody, citrusy, spicy, musky, etc.
-Emotional connection:
-Describe how the scent makes you feel, such as confident, relaxed, or sophisticated.
-Visual imagery:
-Paint a picture with words, like "a warm, comforting scent" or "a refreshing, invigorating fragrance".
-Target audience:
-Consider who will be wearing the perfume and tailor your description to their preferences. 
-''',
+                      text: '''
+Discription : ${perfume.discription!} 
+Brand : ${perfume.brand!}
+CreatedAt : ${perfume.createdAt!}
+Release year : ${perfume.releaseYear!}
+Perfumer : ${perfume.perfumer!}
+Concertration : ${perfume.concertration!}
+Top notes : ${perfume.topNotes!}
+Heart notes : ${perfume.heartNotes!}
+Base notes : ${perfume.baseNotes!}
+Fragrance family : ${perfume.fragranceFamily!}
+Bottle size : ${perfume.bottleSize!}
+Longevity : ${perfume.longevity!}
+                ''',
                       colorCard: kIconColor.shade200,
                     ),
                   ),

@@ -5,4 +5,5 @@ import 'package:onestopshop/features/Home/data/models/perfume_model.dart';
 abstract class HomeRepo {
  Future<Either<Failure,List<PerfumeModel>>> featchBestSellerPerfume();
  Future<Either<Failure,List<PerfumeModel>>> featchFeaturePerfume();
+ 
 } 

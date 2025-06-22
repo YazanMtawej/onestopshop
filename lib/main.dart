@@ -50,6 +50,7 @@ class OneStopShop extends StatelessWidget {
                   BestSellerPerfumeCubit(getIt.get<HomeRepoImpl>())
                     ..featchBestSellerPerfume(),
         ),
+      
       ],
       child: BlocBuilder<SettingsCubit, AppSettingsModel>(
         builder: (context, state) {
@@ -59,7 +60,7 @@ class OneStopShop extends StatelessWidget {
             locale: DevicePreview.locale(context),
             builder: DevicePreview.appBuilder,
             theme: ThemeData(
-              scaffoldBackgroundColor:kPrimaryColor,
+              scaffoldBackgroundColor: kPrimaryColor,
               brightness: state.isDarkMode ? Brightness.dark : Brightness.light,
               primarySwatch: kAppBarColor,
             ),
