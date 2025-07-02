@@ -180,6 +180,61 @@ class SiginViewBody extends StatelessWidget {
                       'assets/images/images1/login_bottom.png',
                     ),
                   ),
+                  Positioned(
+                    bottom: 10,
+                    right: 120,
+                    width: 111,
+                    child: Container(
+                      height: 42,
+                      decoration: BoxDecoration(
+                        color: Colors.blue.shade500,
+                        shape: BoxShape.circle,
+                      ),
+                      child: Padding(
+                        padding: const EdgeInsets.all(2.0),
+                        child: SvgPicture.asset(
+                          'assets/images/icons/facebook.svg',
+                        ),
+                      ),
+                    ),
+                  ),
+                  Positioned(
+                    bottom: 10,
+                    right: 190,
+                    width: 111,
+                    child: Container(
+                      height: 42,
+                      decoration: BoxDecoration(
+                        color: Colors.white,
+                        shape: BoxShape.circle,
+                      ),
+                      child: Padding(
+                        padding: const EdgeInsets.all(2.0),
+                        child: SvgPicture.asset(
+                          'assets/images/icons/google-plus.svg',
+                        ),
+                      ),
+                    ),
+                  ),
+                  Positioned(
+                    bottom: 10,
+                    right: 50,
+                    width: 111,
+                    child: Container(
+                      height: 42,
+                      decoration: BoxDecoration(
+                        color: Colors.cyanAccent,
+                        shape: BoxShape.circle,
+                      ),
+                      child: Padding(
+                        padding: const EdgeInsets.all(2.0),
+                        child: SvgPicture.asset(
+                          'assets/images/icons/twitter.svg',
+                        ),
+                      ),
+                    ),
+                  ),
+                  
                 ],
               ),
             );

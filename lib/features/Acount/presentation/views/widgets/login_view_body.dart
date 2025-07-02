@@ -24,120 +24,172 @@ class LoginViewBody extends StatelessWidget {
         backgroundColor: kPrimaryColor,
         body: BlocConsumer<AuthCubit, AuthState>(
           listener: (context, state) {
-            if(state is AuthAuthenticated){
-              Get.to(()=>MainView(),duration: kTranstionDuration,);
+            if (state is AuthAuthenticated) {
+              Get.to(() => MainView(), duration: kTranstionDuration);
             }
           },
           builder: (context, state) {
-            if(state is AuthLoading){
+            if (state is AuthLoading) {
               return CustomLoadingIndicator();
             }
-            
-          return SizedBox(
-    height: double.infinity,
-    width: double.infinity,
-    child: Stack(
-      children: [
-        Container(
-          margin: const EdgeInsets.symmetric(vertical: 30),
-          width: double.infinity,
-          height: double.infinity,
-          child: Column(
-            children: [
-              const SizedBox(height: 5),
-              const Text(
-                'Login',
-                style: TextStyle(fontSize: 20, color: Colors.black),
-              ),
-              const SizedBox(height: 5),
-              SvgPicture.asset('assets/images/icons/login.svg'),
-              const SizedBox(height: 24),
-  
-              SizedBox(
-                height: 200,
-                child: ListView(
-                  children: [
-                    TextFieldEmail(controller: usernameCtrl, label: 'User Name',),
-                    TextFieldPassword(controller: passwordCtrl, label: 'PassWord',),
-                  ],
-                ),
-              ),
-  
-              const SizedBox(height: 5),
-              ElevatedButton(
-                onPressed: () {
-              context.read<AuthCubit>().login(
-              usernameCtrl.text,
-              passwordCtrl.text,
-    );
-                },
-                style: ButtonStyle(
-                  backgroundColor: WidgetStateProperty.all(
-                    kButtonColor,
-                  ),
-                  padding: WidgetStateProperty.all(
-                    const EdgeInsets.symmetric(
-                      horizontal: 99,
-                      vertical: 14,
-                    ),
-                  ),
-                  shape: WidgetStateProperty.all(
-                    RoundedRectangleBorder(
-                      borderRadius: BorderRadius.circular(66),
-                    ),
-                  ),
-                ),
-                child: const Text(
-                  'Login',
-                  style: TextStyle(fontSize: 19, color: kTextColor),
-                ),
-              ),
-             if(state is AuthError)
-                Text(state.errmessage,style: TextStyle(color: Colors.red),),
-                
-              const SizedBox(height: 10),
-              Row(
-                mainAxisAlignment: MainAxisAlignment.center,
+
+            return SizedBox(
+              height: double.infinity,
+              width: double.infinity,
+              child: Stack(
                 children: [
-                  const Text(" Don't have an account ?"),
-                  GestureDetector(
-                    onTap: () {
-                      Get.to(
-                        () => SiginView(),
-                      //  transition: Transition.leftToRight,
-                        duration: kTranstionDuration,
-                      );
-                    },
-                    child: const Text(
-                      " Sign up",
-                      style: TextStyle(fontWeight: FontWeight.bold),
+                  Container(
+                    margin: const EdgeInsets.symmetric(vertical: 30),
+                    width: double.infinity,
+                    height: double.infinity,
+                    child: Column(
+                      children: [
+                        const SizedBox(height: 5),
+                        const Text(
+                          'Login',
+                          style: TextStyle(fontSize: 20, color: Colors.black),
+                        ),
+                        const SizedBox(height: 5),
+                        SvgPicture.asset('assets/images/icons/login.svg'),
+                        const SizedBox(height: 24),
+
+                        TextFieldEmail(
+                          controller: usernameCtrl,
+                          label: 'User Name',
+                        ),
+                        TextFieldPassword(
+                          controller: passwordCtrl,
+                          label: 'PassWord',
+                        ),
+
+                        const SizedBox(height: 5),
+                        ElevatedButton(
+                          onPressed: () {
+                            context.read<AuthCubit>().login(
+                              usernameCtrl.text,
+                              passwordCtrl.text,
+                            );
+                          },
+                          style: ButtonStyle(
+                            backgroundColor: WidgetStateProperty.all(
+                              kButtonColor,
+                            ),
+                            padding: WidgetStateProperty.all(
+                              const EdgeInsets.symmetric(
+                                horizontal: 99,
+                                vertical: 14,
+                              ),
+                            ),
+                            shape: WidgetStateProperty.all(
+                              RoundedRectangleBorder(
+                                borderRadius: BorderRadius.circular(66),
+                              ),
+                            ),
+                          ),
+                          child: const Text(
+                            'Login',
+                            style: TextStyle(fontSize: 19, color: kTextColor),
+                          ),
+                        ),
+                        if (state is AuthError)
+                          Text(
+                            state.errmessage,
+                            style: TextStyle(color: Colors.red),
+                          ),
+
+                        const SizedBox(height: 10),
+                        Row(
+                          mainAxisAlignment: MainAxisAlignment.center,
+                          children: [
+                            const Text(" Don't have an account ?"),
+                            GestureDetector(
+                              onTap: () {
+                                Get.to(
+                                  () => SiginView(),
+                                  //  transition: Transition.leftToRight,
+                                  duration: kTranstionDuration,
+                                );
+                              },
+                              child: const Text(
+                                " Sign up",
+                                style: TextStyle(fontWeight: FontWeight.bold),
+                              ),
+                            ),
+                          ],
+                        ),
+                      ],
+                    ),
+                  ),
+                  Positioned(
+                    left: 0,
+                    width: 111,
+                    child: Image.asset('assets/images/images1/main_top.png'),
+                  ),
+                  Positioned(
+                    bottom: 0,
+                    right: 0,
+                    width: 111,
+                    child: Image.asset(
+                      'assets/images/images1/login_bottom.png',
+                    ),
+                  ),
+                   Positioned(
+                    bottom: 2,
+                    right: 120,
+                    width: 111,
+                    child: Container(
+                      height: 42,
+                      decoration: BoxDecoration(
+                        color: Colors.blue.shade500,
+                        shape: BoxShape.circle,
+                      ),
+                      child: Padding(
+                        padding: const EdgeInsets.all(2.0),
+                        child: SvgPicture.asset(
+                          'assets/images/icons/facebook.svg',
+                        ),
+                      ),
+                    ),
+                  ),
+                  Positioned(
+                    bottom: 2,
+                    right: 190,
+                    width: 111,
+                    child: Container(
+                      height: 42,
+                      decoration: BoxDecoration(
+                        color: Colors.white,
+                        shape: BoxShape.circle,
+                      ),
+                      child: Padding(
+                        padding: const EdgeInsets.all(2.0),
+                        child: SvgPicture.asset(
+                          'assets/images/icons/google-plus.svg',
+                        ),
+                      ),
+                    ),
+                  ),
+                  Positioned(
+                    bottom: 2,
+                    right: 50,
+                    width: 111,
+                    child: Container(
+                      height: 42,
+                      decoration: BoxDecoration(
+                        color: Colors.cyanAccent,
+                        shape: BoxShape.circle,
+                      ),
+                      child: Padding(
+                        padding: const EdgeInsets.all(2.0),
+                        child: SvgPicture.asset(
+                          'assets/images/icons/twitter.svg',
+                        ),
+                      ),
                     ),
                   ),
                 ],
               ),
-               
-            ],
-          ),
-        ),
-        Positioned(
-          left: 0,
-          width: 111,
-          child: Image.asset('assets/images/images1/main_top.png'),
-        ),
-        Positioned(
-          bottom: 0,
-          right: 0,
-          width: 111,
-          child: Image.asset(
-            'assets/images/images1/login_bottom.png',
-          ),
-        ),
-      ],
-    ),
-  );
-
-
-
+            );
           },
         ),
       ),
