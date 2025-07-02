@@ -1,8 +1,10 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:get/get_navigation/get_navigation.dart';
 import 'package:get/utils.dart';
 import 'package:onestopshop/constents.dart';
 import 'package:onestopshop/core/utils/widgets/custom_app_bar.dart';
+import 'package:onestopshop/features/Acount/presentation/view_models/auth_cubit/auth_cubit.dart';
 import 'package:onestopshop/features/profile/presentation/views/settings_view.dart';
 import 'package:onestopshop/features/profile/presentation/views/from_app_view.dart';
 import 'package:onestopshop/features/profile/presentation/views/widgets/profile_button.dart';
@@ -37,7 +39,7 @@ class ProfileViewBody extends StatelessWidget {
                   Get.to(
                     () => SettingsView(),
                     duration: kTranstionDuration,
-                    transition: Transition.circularReveal,
+                 
                   );
                 },
               ),
@@ -48,9 +50,23 @@ class ProfileViewBody extends StatelessWidget {
                   Get.to(
                     () => FromAppView(),
                     duration: kTranstionDuration,
-                    transition: Transition.circularReveal,
+                    
                   );
                 },
+              ),
+              Spacer(),
+              Center(
+                child: Padding(
+                  padding: const EdgeInsets.all(8.0),
+                  child: ElevatedButton.icon(
+                            onPressed: () {
+                              context.read<AuthCubit>().logout(); 
+                            },
+                            icon: const Icon(Icons.logout),
+                            label: const Text("Login Out"),
+                            style: ElevatedButton.styleFrom(backgroundColor: kIconColor.shade100),
+                          ),
+                ),
               ),
             ],
           ),

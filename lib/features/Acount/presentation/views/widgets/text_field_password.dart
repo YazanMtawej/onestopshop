@@ -2,8 +2,10 @@ import 'package:flutter/material.dart';
 import 'package:onestopshop/constents.dart';
 
 class TextFieldPassword extends StatelessWidget {
-  const TextFieldPassword({super.key});
-
+  const TextFieldPassword({super.key, required this.controller, required this.label,  this.isPassword=false});
+ final TextEditingController controller;
+ final String label;
+ final bool isPassword;
   @override
   Widget build(BuildContext context) {
     
@@ -16,12 +18,13 @@ class TextFieldPassword extends StatelessWidget {
         borderRadius: BorderRadius.circular(66),
       ),
       child: TextField(
-        obscureText:true,
+        controller: controller,
+        obscureText:isPassword,
         keyboardType: TextInputType.number,
         textInputAction: TextInputAction.done,
         decoration: InputDecoration(
           hintText: 'Pass Word : ',
-          labelText: 'Password',
+          labelText: label,
           labelStyle: const TextStyle(fontSize: 19),
           border: InputBorder.none,
           icon: const Icon(Icons.lock),

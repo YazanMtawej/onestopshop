@@ -5,6 +5,8 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:get/get_navigation/src/root/get_material_app.dart';
 import 'package:onestopshop/constents.dart';
 import 'package:onestopshop/core/utils/service_locator.dart';
+import 'package:onestopshop/features/Acount/presentation/view_models/auth_cubit/auth_cubit.dart';
+import 'package:onestopshop/features/Acount/repo/auth_repo.dart';
 import 'package:onestopshop/features/Home/data/models/repos/home_repo_impl.dart';
 import 'package:onestopshop/features/Home/presentation/view_models/best_seller_perfume_cubit/best_seller_perfume_cubit.dart';
 import 'package:onestopshop/features/Home/presentation/view_models/featured_perfume_cubit/featured_perfume_cubit.dart';
@@ -50,7 +52,7 @@ class OneStopShop extends StatelessWidget {
                   BestSellerPerfumeCubit(getIt.get<HomeRepoImpl>())
                     ..featchBestSellerPerfume(),
         ),
-      
+        BlocProvider(create: (context) => AuthCubit(AuthRepository())..tryAutoLogin())
       ],
       child: BlocBuilder<SettingsCubit, AppSettingsModel>(
         builder: (context, state) {
