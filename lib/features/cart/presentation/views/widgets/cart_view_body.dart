@@ -37,9 +37,7 @@ class CartViewBody extends StatelessWidget {
 
           automaticallyImplyLeading: canpop,
         ),
-        body: ListView(
-          children: [const SizedBox(height: 600, child: CartListView())],
-        ),
+        body:const CartListView(),
       ),
     );
   }

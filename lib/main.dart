@@ -10,6 +10,7 @@ import 'package:onestopshop/features/Acount/repo/auth_repo.dart';
 import 'package:onestopshop/features/Home/data/models/repos/home_repo_impl.dart';
 import 'package:onestopshop/features/Home/presentation/view_models/best_seller_perfume_cubit/best_seller_perfume_cubit.dart';
 import 'package:onestopshop/features/Home/presentation/view_models/featured_perfume_cubit/featured_perfume_cubit.dart';
+import 'package:onestopshop/features/cart/presentation/view_models/cubit/cart_cubit.dart';
 import 'package:onestopshop/features/profile/data/models/app_settings_model.dart';
 import 'package:onestopshop/features/profile/presentation/view_models/settings_cubit/settings_cubit.dart';
 import 'package:onestopshop/features/splah/presentation/views/splash_view.dart';
@@ -40,6 +41,7 @@ class OneStopShop extends StatelessWidget {
   Widget build(BuildContext context) {
     return MultiBlocProvider(
       providers: [
+        BlocProvider(create: (_) => CartCubit()),
         BlocProvider(
           create:
               (context) =>

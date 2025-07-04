@@ -115,11 +115,11 @@ Longevity : ${perfume.longevity!}
                 ],
               ),
             ),
-            Spacer(),
+          SizedBox(height: 20,),
 
             Padding(
               padding: const EdgeInsets.symmetric(horizontal: 30, vertical: 35),
-              child: Center(child: ActionDetaillsButton()),
+              child: Center(child: ActionDetaillsButton(perfume: perfume,)),
             ),
           ],
         ),
