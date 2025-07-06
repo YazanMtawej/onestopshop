@@ -4,7 +4,6 @@ import 'package:get/get_core/src/get_main.dart';
 import 'package:get/get_navigation/get_navigation.dart';
 import 'package:onestopshop/assets.dart';
 import 'package:onestopshop/constents.dart';
-import 'package:onestopshop/features/notification/model/view/test.dart';
 import 'package:onestopshop/features/search/presentation/views/search_view.dart';
 
 class CustomAppBar extends StatelessWidget {

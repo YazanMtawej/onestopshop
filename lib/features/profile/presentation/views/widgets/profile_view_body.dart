@@ -5,6 +5,7 @@ import 'package:get/utils.dart';
 import 'package:onestopshop/constents.dart';
 import 'package:onestopshop/core/utils/widgets/custom_app_bar.dart';
 import 'package:onestopshop/features/Acount/presentation/view_models/auth_cubit/auth_cubit.dart';
+import 'package:onestopshop/features/Acount/presentation/view_models/auth_cubit/auth_state.dart';
 import 'package:onestopshop/features/profile/presentation/views/settings_view.dart';
 import 'package:onestopshop/features/profile/presentation/views/from_app_view.dart';
 import 'package:onestopshop/features/profile/presentation/views/widgets/profile_button.dart';
@@ -17,7 +18,6 @@ class ProfileViewBody extends StatelessWidget {
   Widget build(BuildContext context) {
     return SafeArea(
       child: Scaffold(
-       
         body: SizedBox(
           width: double.infinity,
           child: Column(
@@ -27,31 +27,42 @@ class ProfileViewBody extends StatelessWidget {
               ProfileDesign(),
               const SizedBox(height: 10),
               Center(
-                child: Text(
-                  "Name User",
-                  style: TextStyle(fontSize: 30, fontWeight: FontWeight.bold),
+                child: BlocBuilder<AuthCubit, AuthState>(
+                  builder: (context, state) {
+                    if (state is AuthAuthenticated) {
+                      final username =
+                          state.userData['username'];
+                      return Text(
+                        username,
+                        style: const TextStyle(
+                          fontSize: 30,
+                          fontWeight: FontWeight.bold,
+                        ),
+                      );
+                    } else {
+                      return const Text(
+                        "Guest",
+                        style: TextStyle(
+                          fontSize: 30,
+                          fontWeight: FontWeight.bold,
+                        ),
+                      );
+                    }
+                  },
                 ),
               ),
               const SizedBox(height: 20),
               ProfileButton(
                 title: 'Settings',
                 onTap: () {
-                  Get.to(
-                    () => SettingsView(),
-                    duration: kTranstionDuration,
-                 
-                  );
+                  Get.to(() => SettingsView(), duration: kTranstionDuration);
                 },
               ),
               const SizedBox(height: 20),
               ProfileButton(
                 title: 'About the application',
                 onTap: () {
-                  Get.to(
-                    () => FromAppView(),
-                    duration: kTranstionDuration,
-                    
-                  );
+                  Get.to(() => FromAppView(), duration: kTranstionDuration);
                 },
               ),
               Spacer(),
@@ -59,14 +70,16 @@ class ProfileViewBody extends StatelessWidget {
                 child: Padding(
                   padding: const EdgeInsets.all(8.0),
                   child: ElevatedButton.icon(
-                            onPressed: () {
-                              context.read<AuthCubit>().logout();
-                               Navigator.pop(context); 
-                            },
-                            icon: const Icon(Icons.logout),
-                            label: const Text("Login Out"),
-                            style: ElevatedButton.styleFrom(backgroundColor: kIconColor.shade100),
-                          ),
+                    onPressed: () {
+                      context.read<AuthCubit>().logout();
+                      Navigator.pop(context);
+                    },
+                    icon: const Icon(Icons.logout),
+                    label: const Text("Login Out"),
+                    style: ElevatedButton.styleFrom(
+                      backgroundColor: kIconColor.shade100,
+                    ),
+                  ),
                 ),
               ),
             ],
