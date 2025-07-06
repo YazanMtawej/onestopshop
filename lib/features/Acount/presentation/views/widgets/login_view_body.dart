@@ -11,6 +11,7 @@ import 'package:onestopshop/features/Acount/presentation/views/sigin_view.dart';
 import 'package:onestopshop/features/Acount/presentation/views/widgets/text_field_email.dart';
 import 'package:onestopshop/features/Acount/presentation/views/widgets/text_field_password.dart';
 import 'package:onestopshop/features/main/presentation/views/main_view.dart';
+import 'package:onestopshop/services/notification_service.dart';
 
 class LoginViewBody extends StatelessWidget {
   LoginViewBody({super.key});
@@ -64,10 +65,15 @@ class LoginViewBody extends StatelessWidget {
 
                         const SizedBox(height: 5),
                         ElevatedButton(
-                          onPressed: () {
+                          onPressed: () async {
                             context.read<AuthCubit>().login(
                               usernameCtrl.text,
                               passwordCtrl.text,
+                            );
+                            await NotificationService().showNotification(
+                              id: 1,
+                              title: 'Login',
+                              body: 'Welcome to our store. We are pleased to have you here',
                             );
                           },
                           style: ButtonStyle(
@@ -133,7 +139,7 @@ class LoginViewBody extends StatelessWidget {
                       'assets/images/images1/login_bottom.png',
                     ),
                   ),
-                   Positioned(
+                  Positioned(
                     bottom: 2,
                     right: 120,
                     width: 111,

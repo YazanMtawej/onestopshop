@@ -10,6 +10,7 @@ import 'package:onestopshop/features/Acount/presentation/views/login_view.dart';
 import 'package:onestopshop/features/Acount/presentation/views/widgets/text_field_email.dart';
 import 'package:onestopshop/features/Acount/presentation/views/widgets/text_field_password.dart';
 import 'package:onestopshop/features/main/presentation/views/main_view.dart';
+import 'package:onestopshop/services/notification_service.dart';
 
 class SiginViewBody extends StatelessWidget {
   SiginViewBody({super.key});
@@ -91,6 +92,11 @@ class SiginViewBody extends StatelessWidget {
                               password: passwordCtrl.text,
                               firstName: firstNameCtrl.text,
                               lastName: lastNameCtrl.text,
+                            );
+                             await NotificationService().showNotification(
+                              id: 1,
+                              title: 'Sigin up',
+                              body: 'You already have an account with us —welcome',
                             );
                           },
                           style: ButtonStyle(

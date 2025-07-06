@@ -5,6 +5,7 @@ import 'package:onestopshop/assets.dart';
 import 'package:onestopshop/constents.dart';
 import 'package:onestopshop/features/splah/presentation/views/welcom_view.dart';
 import 'package:onestopshop/features/splah/presentation/views/widgets/sliding_text.dart';
+import 'package:onestopshop/services/notification_service.dart';
 
 class SplashViewBody extends StatefulWidget {
   const SplashViewBody({super.key});
@@ -74,12 +75,17 @@ class _SplashViewBodyState extends State<SplashViewBody>
   }
 
   void navigateToWelcomView() {
-     Future.delayed(const Duration(seconds: 3), () {
+     Future.delayed(const Duration(seconds: 3), ()async{
       Get.to(
         () => const WelcomView(),
         transition: Transition.fade,
         duration: kTranstionDuration,
       );
+       await NotificationService().showNotification(
+                  id: 1,
+                  title: 'One Stop Shop',
+                  body: 'Welcome in our app',
+                );
     });
   }
 

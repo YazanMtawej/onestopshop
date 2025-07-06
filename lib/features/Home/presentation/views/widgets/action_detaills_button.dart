@@ -4,6 +4,7 @@ import 'package:onestopshop/constents.dart';
 import 'package:onestopshop/core/utils/widgets/custom_button_other.dart';
 import 'package:onestopshop/features/Home/data/models/perfume_model.dart';
 import 'package:onestopshop/features/cart/presentation/view_models/cubit/cart_cubit.dart';
+import 'package:onestopshop/services/notification_service.dart';
 
 class ActionDetaillsButton extends StatelessWidget {
   const ActionDetaillsButton({super.key, required this.perfume});
@@ -15,7 +16,7 @@ class ActionDetaillsButton extends StatelessWidget {
         CustomButtonOther(
           backgroundColor: kButtonColor,
           textColor: kTextColor,
-          text: '90 %',
+          text: 'Discounts',
           onPressed: () {},
           borderRadius: const BorderRadius.only(
             topLeft: Radius.circular(16),
@@ -26,11 +27,16 @@ class ActionDetaillsButton extends StatelessWidget {
           backgroundColor: kCardColor,
           textColor: kTextColor,
           text: 'Buy',
-          onPressed: () {
+          onPressed: () async{
             BlocProvider.of<CartCubit>(context).addToCart(perfume);
             ScaffoldMessenger.of(context).showSnackBar(
-              SnackBar(content: Text('${perfume.name} added to cart')),
+              SnackBar(content: Text('${perfume.name} added to cart'),backgroundColor: kCardColor.shade700,),
             );
+             await NotificationService().showNotification(
+                  id: 1,
+                  title: 'You have purchased this perfume',
+                  body: 'Thank you for trusting us',
+                );
           },
           borderRadius: BorderRadius.only(
             topRight: Radius.circular(16),

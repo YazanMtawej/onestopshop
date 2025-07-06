@@ -60,7 +60,8 @@ class ProfileViewBody extends StatelessWidget {
                   padding: const EdgeInsets.all(8.0),
                   child: ElevatedButton.icon(
                             onPressed: () {
-                              context.read<AuthCubit>().logout(); 
+                              context.read<AuthCubit>().logout();
+                               Navigator.pop(context); 
                             },
                             icon: const Icon(Icons.logout),
                             label: const Text("Login Out"),

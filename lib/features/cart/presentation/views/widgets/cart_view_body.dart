@@ -6,7 +6,7 @@ import 'package:onestopshop/assets.dart';
 import 'package:onestopshop/constents.dart';
 import 'package:onestopshop/features/cart/presentation/view_models/cubit/cart_cubit.dart';
 import 'package:onestopshop/features/cart/presentation/views/widgets/cart_list_view.dart';
-import 'package:onestopshop/features/notification/model/view/test.dart';
+import 'package:onestopshop/features/search/presentation/views/search_view.dart';
 
 class CartViewBody extends StatelessWidget {
   const CartViewBody({super.key});
@@ -28,15 +28,13 @@ class CartViewBody extends StatelessWidget {
               style: TextStyle(fontSize: 18, fontWeight: FontWeight.bold),
             ),
             const SizedBox(width: 10),
-
-            // زر حذف الكل
             IconButton(
               tooltip: 'Clear Cart',
               onPressed: () {
                 final cartCubit = context.read<CartCubit>();
                 if (cartCubit.state.isNotEmpty) {
                   cartCubit.clearCart();
-                  Get.snackbar("Cart", "All items removed",backgroundColor: kCardColor.shade200);
+                  Get.snackbar("Cart", "All items removed",backgroundColor: Colors.red);
                 }
               },
               icon: const Icon(Icons.delete_forever, color: Colors.red),
@@ -45,7 +43,7 @@ class CartViewBody extends StatelessWidget {
             IconButton(
               onPressed: () {
                 Get.to(
-                  () => TestNotificationView(),
+                  () => SearchView(),
                   duration: kTranstionDuration,
                 );
               },
