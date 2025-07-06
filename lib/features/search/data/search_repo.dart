@@ -26,7 +26,6 @@ class SearchRepo {
       );
 
       final jsonData = response.data;
-      print("API response: $jsonData");
 
       if (jsonData is Map<String, dynamic>) {
         final productsList = jsonData[" Products"];
@@ -37,7 +36,6 @@ class SearchRepo {
 
       return [];
     } catch (e) {
-      print("Error searching perfumes: $e");
       return [];
     }
   }

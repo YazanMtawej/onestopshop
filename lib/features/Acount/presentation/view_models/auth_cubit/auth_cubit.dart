@@ -9,52 +9,47 @@ class AuthCubit extends Cubit<AuthState> {
   final FlutterSecureStorage _storage = const FlutterSecureStorage();
   AuthCubit(this._repo) : super(AuthInitial());
   Future<void> login(String username, String password) async {
-  emit(AuthLoading());
-  try {
-    final data = await _repo.login(username, password);
-    await _storage.write(key: 'access', value: data['access']);
-    await _storage.write(key: 'refresh', value: data['refresh']);
-    DioHelper.setToken(data['access']);
-    print(data);
-    emit(AuthAuthenticated(userData: data['user']));
-  } catch (e) {
-    print('Login error: $e');
-    emit(AuthError('Login failed'));
-  }
-}
-  Future<void> register({
-  required String username,
-  required String password,
-  String? firstName,
-  String? lastName,
-}) async {
-  emit(AuthLoading());
-  try {
-    final data = await _repo.register(
-      username: username,
-      password: password,
-      firstName: firstName,
-      lastName: lastName,
-    );
-    emit(AuthInitial());
-  } catch (e) {
-    emit(AuthError('Registration failed'));
-  }
-}
-  Future<void> logout() async {
-  emit(AuthLoading());
-  try {
-    final refresh = await _storage.read(key: 'refresh');
-    if (refresh != null) {
-      await _repo.logout(refresh);
+    emit(AuthLoading());
+    try {
+      final data = await _repo.login(username, password);
+      await _storage.write(key: 'access', value: data['access']);
+      await _storage.write(key: 'refresh', value: data['refresh']);
+      DioHelper.setToken(data['access']);
+
+      emit(AuthAuthenticated(userData: data['user']));
+    } catch (e) {
+      emit(AuthError('Login failed'));
     }
-    await _storage.deleteAll();
-    DioHelper.clearToken();
-    emit(AuthUnauthenticated());
-  } catch (_) {
-    emit(AuthError('Logout failed'));
   }
-}
+
+  Future<void> register({
+    required String username,
+    required String password,
+    String? firstName,
+    String? lastName,
+  }) async {
+    emit(AuthLoading());
+    try {
+      emit(AuthInitial());
+    } catch (e) {
+      emit(AuthError('Registration failed'));
+    }
+  }
+
+  Future<void> logout() async {
+    emit(AuthLoading());
+    try {
+      final refresh = await _storage.read(key: 'refresh');
+      if (refresh != null) {
+        await _repo.logout(refresh);
+      }
+      await _storage.deleteAll();
+      DioHelper.clearToken();
+      emit(AuthUnauthenticated());
+    } catch (_) {
+      emit(AuthError('Logout failed'));
+    }
+  }
 
   Future<void> tryAutoLogin() async {
     emit(AuthLoading());

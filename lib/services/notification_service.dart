@@ -3,7 +3,8 @@ import 'package:timezone/data/latest_all.dart' as tz;
 import 'package:timezone/timezone.dart' as tz;
 
 class NotificationService {
-  final FlutterLocalNotificationsPlugin _plugin = FlutterLocalNotificationsPlugin();
+  final FlutterLocalNotificationsPlugin _plugin =
+      FlutterLocalNotificationsPlugin();
 
   static final NotificationService _instance = NotificationService._internal();
   factory NotificationService() => _instance;
@@ -13,7 +14,9 @@ class NotificationService {
     try {
       tz.initializeTimeZones();
 
-      const androidSettings = AndroidInitializationSettings('@mipmap/ic_launcher');
+      const androidSettings = AndroidInitializationSettings(
+        '@mipmap/ic_launcher',
+      );
       const windowsSettings = WindowsInitializationSettings(
         appName: 'MyFlutterApp',
         appUserModelId: 'com.example.myapp',
@@ -26,9 +29,8 @@ class NotificationService {
       );
 
       await _plugin.initialize(initSettings);
-    } catch (e) {
-      print('[Error][NotificationService.init] $e');
-    }
+      // ignore: empty_catches
+    } catch (e) {}
   }
 
   Future<void> showNotification({
@@ -48,12 +50,14 @@ class NotificationService {
 
       const windowsDetails = WindowsNotificationDetails();
 
-      const details = NotificationDetails(android: androidDetails, windows: windowsDetails);
+      const details = NotificationDetails(
+        android: androidDetails,
+        windows: windowsDetails,
+      );
 
       await _plugin.show(id, title, body, details, payload: payload);
-    } catch (e) {
-      print('[Error][showNotification] $e');
-    }
+      // ignore: empty_catches
+    } catch (e) {}
   }
 
   Future<void> scheduleNotification({
@@ -77,7 +81,10 @@ class NotificationService {
 
       const windowsDetails = WindowsNotificationDetails();
 
-      const details = NotificationDetails(android: androidDetails, windows: windowsDetails);
+      const details = NotificationDetails(
+        android: androidDetails,
+        windows: windowsDetails,
+      );
 
       await _plugin.zonedSchedule(
         id,
@@ -85,22 +92,19 @@ class NotificationService {
         body,
         tzTime,
         details,
-        
-      
-        payload: payload,
-        matchDateTimeComponents: matchDateTimeComponents, androidScheduleMode: AndroidScheduleMode.exact,
 
+        payload: payload,
+        matchDateTimeComponents: matchDateTimeComponents,
+        androidScheduleMode: AndroidScheduleMode.exact,
       );
-    } catch (e) {
-      print('[Error][scheduleNotification] $e');
-    }
+      // ignore: empty_catches
+    } catch (e) {}
   }
 
   Future<void> cancelAll() async {
     try {
       await _plugin.cancelAll();
-    } catch (e) {
-      print('[Error][cancelAll] $e');
-    }
+      // ignore: empty_catches
+    } catch (e) {}
   }
 }

@@ -1,47 +1,42 @@
 import 'package:dio/dio.dart';
 import 'package:onestopshop/core/utils/dio_helper.dart';
 
-
 class AuthRepository {
   final Dio _dio = DioHelper.dio;
   Future<Map<String, dynamic>> login(String username, String password) async {
-  try {
-    final response = await _dio.post(
-      'login/',
-      data: {
-        'username': username,
-        'password': password,
-      },
-    );
-    print('Login response: ${response.data}');
-    return response.data;
-  } on DioException catch (e) {
-    print('Login failed: ${e.response?.data}');
-    throw Exception('Login failed');
+    try {
+      final response = await _dio.post(
+        'login/',
+        data: {'username': username, 'password': password},
+      );
+
+      return response.data;
+    } on DioException {
+      throw Exception('Login failed');
+    }
   }
-}
-Future<Map<String, dynamic>> register({
-  required String username,
-  required String password,
-  String? firstName,
-  String? lastName,
-}) async {
-  try {
-    final response = await _dio.post(
-      'register/',
-      data: {
-        'username': username,
-        'password': password,
-        'first_name': firstName,
-        'last_name': lastName,
-      },
-    );
-    return response.data;
-  } on DioException catch (e) {
-    print('Register failed: ${e.response?.data}');
-    throw Exception('Register failed');
+
+  Future<Map<String, dynamic>> register({
+    required String username,
+    required String password,
+    String? firstName,
+    String? lastName,
+  }) async {
+    try {
+      final response = await _dio.post(
+        'register/',
+        data: {
+          'username': username,
+          'password': password,
+          'first_name': firstName,
+          'last_name': lastName,
+        },
+      );
+      return response.data;
+    } on DioException {
+      throw Exception('Register failed');
+    }
   }
-}
 
   Future<void> logout(String refreshToken) async {
     await _dio.post('logout/', data: {'refresh': refreshToken});
