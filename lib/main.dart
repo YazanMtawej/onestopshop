@@ -13,6 +13,8 @@ import 'package:onestopshop/features/Home/presentation/view_models/featured_perf
 import 'package:onestopshop/features/cart/presentation/view_models/cubit/cart_cubit.dart';
 import 'package:onestopshop/features/profile/data/models/app_settings_model.dart';
 import 'package:onestopshop/features/profile/presentation/view_models/settings_cubit/settings_cubit.dart';
+import 'package:onestopshop/features/search/data/search_repo.dart';
+import 'package:onestopshop/features/search/presentation/view_models/cubit/search_cubit.dart';
 import 'package:onestopshop/features/splah/presentation/views/splash_view.dart';
 import 'package:onestopshop/services/app_settings_service.dart';
 import 'package:onestopshop/services/notification_service.dart';
@@ -41,6 +43,8 @@ class OneStopShop extends StatelessWidget {
   Widget build(BuildContext context) {
     return MultiBlocProvider(
       providers: [
+        BlocProvider(create: (_) => SearchCubit(SearchRepo(getIt.get()))),
+
         BlocProvider(create: (_) => CartCubit()),
         BlocProvider(
           create:
@@ -54,7 +58,9 @@ class OneStopShop extends StatelessWidget {
                   BestSellerPerfumeCubit(getIt.get<HomeRepoImpl>())
                     ..featchBestSellerPerfume(),
         ),
-        BlocProvider(create: (context) => AuthCubit(AuthRepository())..tryAutoLogin())
+        BlocProvider(
+          create: (context) => AuthCubit(AuthRepository())..tryAutoLogin(),
+        ),
       ],
       child: BlocBuilder<SettingsCubit, AppSettingsModel>(
         builder: (context, state) {

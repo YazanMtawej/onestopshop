@@ -1,7 +1,6 @@
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_secure_storage/flutter_secure_storage.dart';
 import 'package:get/get.dart';
-import 'package:get/get_core/src/get_main.dart';
 import 'package:onestopshop/constents.dart';
 import 'package:onestopshop/core/utils/dio_helper.dart';
 import 'package:onestopshop/features/Acount/presentation/views/login_view.dart';

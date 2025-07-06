@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:onestopshop/constents.dart';
-import 'package:onestopshop/core/utils/widgets/custom_text_field.dart';
+import 'package:onestopshop/features/search/presentation/view_models/cubit/search_cubit.dart';
 import 'package:onestopshop/features/search/presentation/views/widgets/search_list_view.dart';
 
 class SearchViewBody extends StatelessWidget {
@@ -8,29 +9,51 @@ class SearchViewBody extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return SafeArea(child: Scaffold(
-      appBar: AppBar( backgroundColor: kAppBarColor,
+    final controller = TextEditingController();
+
+    return SafeArea(
+      child: Scaffold(
+        appBar: AppBar(
+          backgroundColor: kAppBarColor,
           elevation: 0,
-          title: const Text('Find your favorite perfume', style: TextStyle(fontSize:18,color: Colors.black)),
+          title: const Text(
+            'Find your favorite perfume',
+            style: TextStyle(fontSize: 18, color: Colors.black),
           ),
-      body: Padding(
-        padding: const EdgeInsets.symmetric(horizontal: 15),
-        child: ListView(
-          children: [
-            SizedBox(height: 30,),
-            Padding(
-              padding: const EdgeInsets.symmetric(horizontal: 20),
-              child: CustomTextField(hinttext: 'Search',inputType: TextInputType.name,),
-            ),
-            const SizedBox(height: 10,),
-          const  Text('Result :',style: TextStyle(fontSize: 20,fontWeight: FontWeight.w500),),
-         const   SizedBox(
-              height: 600,
-              child: SearchListView()),
-           
-          ],
+        ),
+        body: Padding(
+          padding: const EdgeInsets.symmetric(horizontal: 15),
+          child: Column(
+            children: [
+              const SizedBox(height: 20),
+              Padding(
+                padding: const EdgeInsets.symmetric(horizontal: 10),
+                child: TextField(
+                  controller: controller,
+                  decoration: const InputDecoration(
+                    hintText: 'Search',
+                    prefixIcon: Icon(Icons.search),
+                    border: OutlineInputBorder(),
+                  ),
+                  onChanged: (value) {
+                    context.read<SearchCubit>().search(keyword: value);
+                  },
+                ),
+              ),
+              const SizedBox(height: 10),
+              const Align(
+                alignment: Alignment.centerLeft,
+                child: Text(
+                  'Result:',
+                  style: TextStyle(fontSize: 20, fontWeight: FontWeight.w500),
+                ),
+              ),
+              const SizedBox(height: 10),
+             Expanded(child: const SearchListView()),
+            ],
+          ),
         ),
       ),
-    ),);
+    );
   }
 }

@@ -5,6 +5,7 @@ import 'package:get/get_navigation/get_navigation.dart';
 import 'package:onestopshop/assets.dart';
 import 'package:onestopshop/constents.dart';
 import 'package:onestopshop/features/notification/model/view/test.dart';
+import 'package:onestopshop/features/search/presentation/views/search_view.dart';
 
 class CustomAppBar extends StatelessWidget {
   const CustomAppBar({super.key, required this.text});
@@ -27,7 +28,7 @@ final String text;
              IconButton(
                 onPressed: () {
                   Get.to(
-                    () => TestNotificationView(),
+                    () => SearchView(),
                     duration: kTranstionDuration,
                     transition: Transition.circularReveal,
                   );

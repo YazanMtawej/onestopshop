@@ -1,9 +1,10 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
-import 'package:get/get_core/src/get_main.dart';
-import 'package:get/get_navigation/get_navigation.dart';
+import 'package:get/get.dart';
 import 'package:onestopshop/assets.dart';
 import 'package:onestopshop/constents.dart';
+import 'package:onestopshop/features/cart/presentation/view_models/cubit/cart_cubit.dart';
 import 'package:onestopshop/features/cart/presentation/views/widgets/cart_list_view.dart';
 import 'package:onestopshop/features/notification/model/view/test.dart';
 
@@ -12,32 +13,50 @@ class CartViewBody extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final bool canpop = ModalRoute.of(context)?.canPop ?? false;
+    final bool canPop = ModalRoute.of(context)?.canPop ?? false;
+
     return SafeArea(
       child: Scaffold(
         appBar: AppBar(
+          automaticallyImplyLeading: canPop,
+          backgroundColor: kAppBarColor,
           actions: [
             SizedBox(height: 35, child: Image.asset(AssetsData.logo)),
-            SizedBox(width: 60),
-            Text(
+            const SizedBox(width: 60),
+            const Text(
               'My Cart',
               style: TextStyle(fontSize: 18, fontWeight: FontWeight.bold),
             ),
-            SizedBox(width: 50),
+            const SizedBox(width: 10),
+
+            // زر حذف الكل
             IconButton(
-              onPressed: () {  Get.to(
-                    () => TestNotificationView(),
-                    duration: kTranstionDuration,
-                    transition: Transition.circularReveal,
-                  );},
-              icon: Icon(FontAwesomeIcons.magnifyingGlass,color: Colors.black,),
+              tooltip: 'Clear Cart',
+              onPressed: () {
+                final cartCubit = context.read<CartCubit>();
+                if (cartCubit.state.isNotEmpty) {
+                  cartCubit.clearCart();
+                  Get.snackbar("Cart", "All items removed",backgroundColor: kCardColor.shade200);
+                }
+              },
+              icon: const Icon(Icons.delete_forever, color: Colors.red),
+            ),
+
+            IconButton(
+              onPressed: () {
+                Get.to(
+                  () => TestNotificationView(),
+                  duration: kTranstionDuration,
+                );
+              },
+              icon: const Icon(
+                FontAwesomeIcons.magnifyingGlass,
+                color: Colors.black,
+              ),
             ),
           ],
-          backgroundColor: kAppBarColor,
-
-          automaticallyImplyLeading: canpop,
         ),
-        body:const CartListView(),
+        body: const CartListView(),
       ),
     );
   }

@@ -1,6 +1,7 @@
 // lib/features/cart/presentation/views/widgets/cart_list_view.dart
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:onestopshop/constents.dart';
 import 'package:onestopshop/features/Home/data/models/perfume_model.dart';
 import 'package:onestopshop/features/Home/presentation/views/widgets/perfum_list_view_item.dart';
 import 'package:onestopshop/features/cart/presentation/view_models/cubit/cart_cubit.dart';
@@ -13,7 +14,7 @@ class CartListView extends StatelessWidget {
     return BlocBuilder<CartCubit, List<PerfumeModel>>(
       builder: (context, cartItems) {
         if (cartItems.isEmpty) {
-          return const Center(child: Text('Your cart is empty.'));
+          return const Center(child: Text('Your cart is empty.',style: TextStyle(fontSize: 24,fontWeight: FontWeight.w500,color: kAppBarColor),));
         }
 
         return ListView.builder(
@@ -23,10 +24,10 @@ class CartListView extends StatelessWidget {
             return Dismissible(
               key: ValueKey(item.name),
               background: Container(
-                color: Colors.red,
+                color: kCardColor,
                 alignment: Alignment.centerRight,
                 padding: const EdgeInsets.symmetric(horizontal: 20),
-                child: const Icon(Icons.delete, color: Colors.white),
+                child: const Icon(Icons.delete, color: kIconColor),
               ),
               direction: DismissDirection.endToStart,
               onDismissed: (_) {
