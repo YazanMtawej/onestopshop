@@ -24,6 +24,7 @@ class CustomCardText extends StatelessWidget {
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
             Text(
+              textAlign: TextAlign.start,
               title,
               style: TextStyle(
                 fontSize: 22,
@@ -32,7 +33,15 @@ class CustomCardText extends StatelessWidget {
               ),
             ),
             const SizedBox(height: 16),
-            Text(text,textAlign: TextAlign.start, style: TextStyle(fontSize: 16,height: 1.7,fontWeight: FontWeight.w500)),
+            Text(
+              text,
+              textAlign: TextAlign.start,
+              style: TextStyle(
+                fontSize: 16,
+                height: 1.7,
+                fontWeight: FontWeight.w500,
+              ),
+            ),
           ],
         ),
       ),

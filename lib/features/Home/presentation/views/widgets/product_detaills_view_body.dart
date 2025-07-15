@@ -92,10 +92,9 @@ class ProducDetaillstViewBody extends StatelessWidget {
               height: MediaQuery.of(context).size.height * .31,
               child: ListView(
                 children: [
-                  Expanded(
-                    child: CustomCardText(
-                      title: 'Details',
-                      text: '''
+                  CustomCardText(
+                    title: 'Details',
+                    text: '''
 Discription : ${perfume.discription!} 
 Brand : ${perfume.brand!}
 CreatedAt : ${perfume.createdAt!}
@@ -107,10 +106,8 @@ Heart notes : ${perfume.heartNotes!}
 Base notes : ${perfume.baseNotes!}
 Fragrance family : ${perfume.fragranceFamily!}
 Bottle size : ${perfume.bottleSize!}
-Longevity : ${perfume.longevity!}
-                ''',
-                      colorCard: kIconColor.shade200,
-                    ),
+Longevity : ${perfume.longevity!}''',
+                    colorCard: kIconColor.shade200,
                   ),
                 ],
               ),

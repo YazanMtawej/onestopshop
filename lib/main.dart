@@ -18,6 +18,7 @@ import 'package:onestopshop/features/search/presentation/view_models/cubit/searc
 import 'package:onestopshop/features/splah/presentation/views/splash_view.dart';
 import 'package:onestopshop/services/app_settings_service.dart';
 import 'package:onestopshop/services/notification_service.dart';
+import 'package:google_fonts/google_fonts.dart';
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
@@ -70,6 +71,9 @@ class OneStopShop extends StatelessWidget {
             locale: DevicePreview.locale(context),
             builder: DevicePreview.appBuilder,
             theme: ThemeData(
+              textTheme: GoogleFonts.playfairDisplayTextTheme(
+                Theme.of(context).textTheme,
+              ),
               scaffoldBackgroundColor: kPrimaryColor,
               brightness: state.isDarkMode ? Brightness.dark : Brightness.light,
               primarySwatch: kAppBarColor,
