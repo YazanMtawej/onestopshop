@@ -39,7 +39,7 @@ Whether you're looking for your signature fragrance or the perfect gift, our app
           
 Thank you for choosing us. 
           
-we hope you enjoy your fragrance journey!''',colorCard: Colors.brown.shade200,),
+we hope you enjoy your fragrance journey!''',colorCard: kIconColor.shade200,),
       
              PhotoDesign(),
           ],

@@ -1,8 +1,11 @@
 import 'package:flutter/material.dart';
+import 'package:get/get_navigation/get_navigation.dart';
+import 'package:get/utils.dart';
 import 'package:onestopshop/constents.dart';
 import 'package:onestopshop/features/profile/data/models/app_settings_model.dart';
 import 'package:onestopshop/features/profile/presentation/view_models/settings_cubit/settings_cubit.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:onestopshop/features/profile/presentation/views/admin_dashboard_view.dart';
 
 class SettingsViewBody extends StatelessWidget {
   const SettingsViewBody({super.key});
@@ -16,7 +19,7 @@ class SettingsViewBody extends StatelessWidget {
           appBar: AppBar(
             backgroundColor: themeColor,
             title: const Text("Settings"),
-            foregroundColor: Colors.white,
+            foregroundColor: kTextColor,
           ),
           body: Padding(
             padding: const EdgeInsets.all(20),
@@ -40,6 +43,29 @@ class SettingsViewBody extends StatelessWidget {
                           context.read<SettingsCubit>().toggleNotifications(),
                   themeColor: themeColor,
                 ),
+                SizedBox(height: 20,),
+
+                 Padding(
+            padding: const EdgeInsets.symmetric(horizontal: 16.0, vertical: 8),
+            child: SizedBox(
+              width: double.infinity,
+              child: ElevatedButton(
+                onPressed: () {
+                  Get.to(() => const AdminDashboardView());
+                },
+                style: ElevatedButton.styleFrom(
+                  backgroundColor: Colors.purple[200],
+                  padding: const EdgeInsets.symmetric(vertical: 10),
+                  textStyle: const TextStyle(fontSize: 16, fontWeight: FontWeight.bold),
+                  shape: RoundedRectangleBorder(
+                    borderRadius: BorderRadius.circular(16),
+                  ),
+                  elevation: 3,
+                ),
+                child: const Text('Charge Points'),
+              ),
+            ),
+          ),
               ],
             ),
           ),

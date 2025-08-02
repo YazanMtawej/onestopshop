@@ -1,6 +1,6 @@
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:onestopshop/features/profile/data/models/app_settings_model.dart';
-import 'package:onestopshop/services/app_settings_service.dart';
+import 'package:onestopshop/core/services/app_settings_service.dart';
 
 
 class SettingsCubit extends Cubit<AppSettingsModel> {

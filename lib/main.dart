@@ -16,8 +16,8 @@ import 'package:onestopshop/features/profile/presentation/view_models/settings_c
 import 'package:onestopshop/features/search/data/search_repo.dart';
 import 'package:onestopshop/features/search/presentation/view_models/cubit/search_cubit.dart';
 import 'package:onestopshop/features/splah/presentation/views/splash_view.dart';
-import 'package:onestopshop/services/app_settings_service.dart';
-import 'package:onestopshop/services/notification_service.dart';
+import 'package:onestopshop/core/services/app_settings_service.dart';
+import 'package:onestopshop/core/services/notification_service.dart';
 import 'package:google_fonts/google_fonts.dart';
 
 void main() async {

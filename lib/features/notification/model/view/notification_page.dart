@@ -3,7 +3,7 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 
 import 'package:onestopshop/features/notification/view_model/notification_cubit.dart';
 import 'package:onestopshop/features/notification/view_model/notification_state.dart';
-import 'package:onestopshop/services/notification_service.dart';
+import 'package:onestopshop/core/services/notification_service.dart';
 import 'package:permission_handler/permission_handler.dart';
 
 

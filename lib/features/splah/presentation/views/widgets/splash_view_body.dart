@@ -5,7 +5,7 @@ import 'package:onestopshop/assets.dart';
 import 'package:onestopshop/constents.dart';
 import 'package:onestopshop/features/splah/presentation/views/welcom_view.dart';
 import 'package:onestopshop/features/splah/presentation/views/widgets/sliding_text.dart';
-import 'package:onestopshop/services/notification_service.dart';
+import 'package:onestopshop/core/services/notification_service.dart';
 
 class SplashViewBody extends StatefulWidget {
   const SplashViewBody({super.key});

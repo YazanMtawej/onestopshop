@@ -4,7 +4,7 @@ import 'package:onestopshop/constents.dart';
 import 'package:onestopshop/core/utils/widgets/custom_button_other.dart';
 import 'package:onestopshop/features/Home/data/models/perfume_model.dart';
 import 'package:onestopshop/features/cart/presentation/view_models/cubit/cart_cubit.dart';
-import 'package:onestopshop/services/notification_service.dart';
+import 'package:onestopshop/core/services/notification_service.dart';
 
 class ActionDetaillsButton extends StatelessWidget {
   const ActionDetaillsButton({super.key, required this.perfume});

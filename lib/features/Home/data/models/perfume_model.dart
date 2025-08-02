@@ -128,4 +128,14 @@ class PerfumeModel extends Equatable {
 				user,
 		];
 	}
+  @override
+bool operator ==(Object other) =>
+    identical(this, other) ||
+    other is PerfumeModel &&
+        runtimeType == other.runtimeType &&
+        id == other.id;
+
+@override
+int get hashCode => id.hashCode;
+
 }

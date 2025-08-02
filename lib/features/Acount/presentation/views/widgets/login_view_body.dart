@@ -11,7 +11,7 @@ import 'package:onestopshop/features/Acount/presentation/views/sigin_view.dart';
 import 'package:onestopshop/features/Acount/presentation/views/widgets/text_field_email.dart';
 import 'package:onestopshop/features/Acount/presentation/views/widgets/text_field_password.dart';
 import 'package:onestopshop/features/main/presentation/views/main_view.dart';
-import 'package:onestopshop/services/notification_service.dart';
+import 'package:onestopshop/core/services/notification_service.dart';
 
 class LoginViewBody extends StatelessWidget {
   LoginViewBody({super.key});
