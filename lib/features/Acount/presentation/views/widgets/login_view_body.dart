@@ -54,7 +54,7 @@ class LoginViewBody extends StatelessWidget {
                         SvgPicture.asset('assets/images/icons/login.svg'),
                         const SizedBox(height: 24),
 
-                        TextFieldEmail(
+                        TextFieldUser(
                           controller: usernameCtrl,
                           label: 'User Name',
                         ),

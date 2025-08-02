@@ -62,15 +62,15 @@ class SiginViewBody extends StatelessWidget {
                             padding: const EdgeInsets.all(8.0),
                             child: ListView(
                               children: [
-                                TextFieldEmail(
+                                TextFieldUser(
                                   controller: firstNameCtrl,
                                   label: 'First Name',
                                 ),
-                                TextFieldEmail(
+                                TextFieldUser(
                                   controller: lastNameCtrl,
                                   label: 'Last tName',
                                 ),
-                                TextFieldEmail(
+                                TextFieldUser(
                                   controller: usernameCtrl,
                                   label: 'User Name',
                                 ),
@@ -96,7 +96,7 @@ class SiginViewBody extends StatelessWidget {
                              await NotificationService().showNotification(
                               id: 1,
                               title: 'Sigin up',
-                              body: 'You already have an account with us —welcome',
+                              body: 'You already have an account with us welcome',
                             );
                           },
                           style: ButtonStyle(

@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:onestopshop/constents.dart';
 
-class TextFieldEmail extends StatelessWidget {
-  const TextFieldEmail({super.key, required this.controller, required this.label});
+class TextFieldUser extends StatelessWidget {
+  const TextFieldUser({super.key, required this.controller, required this.label});
  final TextEditingController controller;
  final String label;
 
@@ -10,8 +10,8 @@ class TextFieldEmail extends StatelessWidget {
   Widget build(BuildContext context) {
    
     return Container(
-      margin: const EdgeInsets.symmetric(vertical: 14),
-      padding: const EdgeInsets.symmetric(vertical: 5, horizontal: 5),
+      margin: const EdgeInsets.symmetric(vertical: 10),
+      padding: const EdgeInsets.symmetric(vertical: 2, horizontal: 5),
       width: 250,
       
       decoration: BoxDecoration(
