@@ -46,7 +46,7 @@ class _ChargePointsViewState extends State<ChargePointsView> {
       usernameController.clear();
       amountController.clear();
     } catch (e) {
-      print("Charge error: $e"); // ✅ اطبع أي خطأ يحدث
+      print("Charge error: $e"); 
       Get.snackbar(
         "Error",
         "Failed to charge points.",

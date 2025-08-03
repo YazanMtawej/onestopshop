@@ -83,7 +83,7 @@ class ProducDetaillstViewBody extends StatelessWidget {
             ),
             
             Padding(
-              padding: const EdgeInsets.symmetric(horizontal: 120,vertical: 4),
+              padding: const EdgeInsets.symmetric(horizontal: 140,vertical: 4),
               child: PerfumeRating(rate: perfume.rating!),
             ),
             SizedBox(

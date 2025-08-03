@@ -1,4 +1,5 @@
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:onestopshop/core/services/notification_service.dart';
 import 'package:onestopshop/features/profile/data/models/app_settings_model.dart';
 import 'package:onestopshop/core/services/app_settings_service.dart';
 
@@ -20,13 +21,19 @@ class SettingsCubit extends Cubit<AppSettingsModel> {
     _save(updated);
   }
 
-  void toggleNotifications() {
-    final updated = state.copyWith(
-      notificationsEnabled: !state.notificationsEnabled,
-    );
-    emit(updated);
-    _save(updated);
+ 
+void toggleNotifications() {
+  final updated = state.copyWith(
+    notificationsEnabled: !state.notificationsEnabled,
+  );
+
+  emit(updated);
+  _save(updated);
+
+  if (!updated.notificationsEnabled) {
+    NotificationService().cancelAll(); // 🚫 أوقف جميع الإشعارات
   }
+}
 
   void _save(AppSettingsModel model) {
     _service.saveSettings(

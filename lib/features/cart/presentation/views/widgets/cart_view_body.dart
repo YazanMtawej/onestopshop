@@ -170,7 +170,7 @@ class _CartViewBodyState extends State<CartViewBody> {
                       child: ElevatedButton.icon(
                         onPressed: () async {
                           await payWithPoints(context);
-                           Get.to(() => const TransactionHistoryView());
+                           Get.to(() => const TransactionHistoryView(),duration: kTranstionDuration);
                         },
                         icon: const Icon(Icons.wallet, color: kPrimaryColor),
                         label: const Text(

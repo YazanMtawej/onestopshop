@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import 'package:onestopshop/constents.dart';
 import 'package:onestopshop/core/utils/dio_helper.dart';
 import 'package:intl/intl.dart';
 
@@ -38,7 +39,7 @@ class _TransactionHistoryViewState extends State<TransactionHistoryView> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: Colors.purple.shade50,
+      backgroundColor: kPrimaryColor,
       appBar: AppBar(
         title: const Text("Points History"),
         centerTitle: true,
@@ -77,7 +78,7 @@ class _TransactionHistoryViewState extends State<TransactionHistoryView> {
                           child: ListTile(
                             contentPadding: const EdgeInsets.symmetric(horizontal: 4),
                             leading: CircleAvatar(
-                              backgroundColor: color.withOpacity(0.1),
+                              backgroundColor: color.shade100,
                               child: Icon(icon, color: color, size: 24),
                             ),
                             title: Text(
