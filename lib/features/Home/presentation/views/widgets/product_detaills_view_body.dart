@@ -7,7 +7,6 @@ import 'package:onestopshop/constents.dart';
 import 'package:onestopshop/core/utils/widgets/custom_card_text.dart';
 import 'package:onestopshop/core/utils/widgets/custom_loading_indicator.dart';
 import 'package:onestopshop/features/Home/data/models/perfume_model.dart';
-
 import 'package:onestopshop/features/Home/presentation/views/widgets/action_detaills_button.dart';
 import 'package:onestopshop/features/Home/presentation/views/widgets/perfume_rating.dart';
 import 'package:onestopshop/features/cart/presentation/views/cart_view.dart';

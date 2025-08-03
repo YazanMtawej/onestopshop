@@ -6,6 +6,7 @@ import 'package:onestopshop/core/utils/dio_helper.dart';
 import 'package:onestopshop/core/utils/token_storage.dart';
 import 'package:onestopshop/features/cart/presentation/view_models/cubit/cart_cubit.dart';
 import 'package:onestopshop/features/cart/presentation/views/widgets/cart_list_view.dart';
+import 'package:onestopshop/features/profile/presentation/views/transaction_history_view.dart';
 
 class CartViewBody extends StatefulWidget {
   const CartViewBody({super.key});
@@ -169,7 +170,7 @@ class _CartViewBodyState extends State<CartViewBody> {
                       child: ElevatedButton.icon(
                         onPressed: () async {
                           await payWithPoints(context);
-                          // Get.to(() => const TransactionHistoryView());
+                           Get.to(() => const TransactionHistoryView());
                         },
                         icon: const Icon(Icons.wallet, color: kPrimaryColor),
                         label: const Text(

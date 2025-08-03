@@ -8,38 +8,59 @@ class CustomCardText extends StatelessWidget {
     required this.title,
     required this.colorCard,
   });
+
   final String text;
   final String title;
   final Color colorCard;
+
   @override
   Widget build(BuildContext context) {
-    return Card(
-      color: colorCard,
-      elevation: 4,
-      shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(12)),
-      margin: const EdgeInsets.all(16),
+    return Container(
+      margin: const EdgeInsets.symmetric(horizontal: 16, vertical: 10),
+      decoration: BoxDecoration(
+        color: colorCard,
+        borderRadius: BorderRadius.circular(20),
+        boxShadow: [
+          BoxShadow(
+            color: Colors.black,
+            blurRadius: 10,
+            offset: const Offset(0, 6),
+          ),
+        ],
+      ),
       child: Padding(
-        padding: const EdgeInsets.all(16.0),
+        padding: const EdgeInsets.all(20.0),
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
-            Text(
-              textAlign: TextAlign.start,
-              title,
-              style: TextStyle(
-                fontSize: 22,
-                fontWeight: FontWeight.bold,
-                color: kTextColor,
-              ),
+            Row(
+              children: [
+                const Icon(Icons.spa, color: kButtonColor),
+                const SizedBox(width: 8),
+                Expanded(
+                  child: Text(
+                    title,
+                    style: const TextStyle(
+                      fontSize: 22,
+                      fontWeight: FontWeight.bold,
+                      color: kTextColor,
+                      height: 1.3,
+                    ),
+                  ),
+                ),
+              ],
             ),
+
             const SizedBox(height: 16),
+
+            // وصف العطر
             Text(
               text,
-              textAlign: TextAlign.start,
-              style: TextStyle(
+              style: const TextStyle(
                 fontSize: 16,
-                height: 1.7,
                 fontWeight: FontWeight.w500,
+                height: 1.8,
+                color: Colors.black87,
               ),
             ),
           ],
