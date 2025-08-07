@@ -187,8 +187,8 @@ class SiginViewBody extends StatelessWidget {
                     ),
                   ),
                   Positioned(
-                    bottom: 10,
-                    right: 120,
+                    bottom: 20,
+                    right: 150,
                     width: 111,
                     child: Container(
                       height: 42,
@@ -205,8 +205,8 @@ class SiginViewBody extends StatelessWidget {
                     ),
                   ),
                   Positioned(
-                    bottom: 10,
-                    right: 190,
+                    bottom: 20,
+                    right: 220,
                     width: 111,
                     child: Container(
                       height: 42,
@@ -223,8 +223,8 @@ class SiginViewBody extends StatelessWidget {
                     ),
                   ),
                   Positioned(
-                    bottom: 10,
-                    right: 50,
+                    bottom: 20,
+                    right: 80,
                     width: 111,
                     child: Container(
                       height: 42,

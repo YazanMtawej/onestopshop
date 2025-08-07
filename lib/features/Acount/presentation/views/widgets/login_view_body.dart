@@ -7,6 +7,7 @@ import 'package:onestopshop/constents.dart';
 import 'package:onestopshop/core/utils/widgets/custom_loading_indicator.dart';
 import 'package:onestopshop/features/Acount/presentation/view_models/auth_cubit/auth_cubit.dart';
 import 'package:onestopshop/features/Acount/presentation/view_models/auth_cubit/auth_state.dart';
+import 'package:onestopshop/features/Acount/presentation/views/forgot_password_view.dart';
 import 'package:onestopshop/features/Acount/presentation/views/sigin_view.dart';
 import 'package:onestopshop/features/Acount/presentation/views/widgets/text_field_email.dart';
 import 'package:onestopshop/features/Acount/presentation/views/widgets/text_field_password.dart';
@@ -62,6 +63,22 @@ class LoginViewBody extends StatelessWidget {
                           controller: passwordCtrl,
                           label: 'PassWord',
                         ),
+                        Align(
+                          alignment: Alignment.center,
+                          child: TextButton(
+                            onPressed: () {
+                             Get.to(() => ForgotPasswordView());
+                            },
+                            child: const Text(
+                              ' Forgot your password ?',
+                              style: TextStyle(
+                                color: kTextColor,
+                                fontWeight: FontWeight.w500,
+                                decoration: TextDecoration.none,
+                              ),
+                            ),
+                          ),
+                        ),
 
                         const SizedBox(height: 5),
                         ElevatedButton(
@@ -73,7 +90,8 @@ class LoginViewBody extends StatelessWidget {
                             await NotificationService().showNotification(
                               id: 1,
                               title: 'Login',
-                              body: 'Welcome to our store. We are pleased to have you here',
+                              body:
+                                  'Welcome to our store. We are pleased to have you here',
                             );
                           },
                           style: ButtonStyle(
@@ -140,8 +158,8 @@ class LoginViewBody extends StatelessWidget {
                     ),
                   ),
                   Positioned(
-                    bottom: 2,
-                    right: 120,
+                    bottom: 20,
+                    right: 150,
                     width: 111,
                     child: Container(
                       height: 42,
@@ -158,8 +176,8 @@ class LoginViewBody extends StatelessWidget {
                     ),
                   ),
                   Positioned(
-                    bottom: 2,
-                    right: 190,
+                    bottom: 20,
+                    right: 220,
                     width: 111,
                     child: Container(
                       height: 42,
@@ -176,8 +194,8 @@ class LoginViewBody extends StatelessWidget {
                     ),
                   ),
                   Positioned(
-                    bottom: 2,
-                    right: 50,
+                    bottom: 20,
+                    right: 80,
                     width: 111,
                     child: Container(
                       height: 42,

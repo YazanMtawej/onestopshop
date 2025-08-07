@@ -51,7 +51,7 @@ class ProducDetaillstViewBody extends StatelessWidget {
                   child: AspectRatio(
                     aspectRatio: 2.6 / 4,
                     child: CachedNetworkImage(
-                      fit: BoxFit.fill,
+                      fit: BoxFit.contain,
                       imageUrl: perfume.picture!,
                       placeholder:
                           (context, url) => const CustomLoadingIndicator(),
