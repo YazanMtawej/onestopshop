@@ -69,7 +69,7 @@ class _CartViewBodyState extends State<CartViewBody> {
 
       print("Payment Response: ${response.data}");
 
-      // ✅ قراءة رسالة النجاح من السيرفر إذا موجودة
+      // قراءة رسالة النجاح من السيرفر إذا موجودة
       final message =
           response.data['message'] ?? 'Payment completed with points';
 
@@ -78,7 +78,7 @@ class _CartViewBodyState extends State<CartViewBody> {
       await fetchUserBalance();
       return true;
     } catch (e) {
-      print("Payment error: $e"); // ✅ اطبع الخطأ الكامل للتشخيص
+      print("Payment error: $e"); 
       Get.snackbar(
         "Error",
         "Payment with points failed",

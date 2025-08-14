@@ -58,7 +58,7 @@ class _EditProfileViewState extends State<EditProfileView> {
           "first_name": _firstNameCtrl.text.trim(),
           "last_name": _lastNameCtrl.text.trim(),
           "username": _usernameCtrl.text.trim(),
-          "password": _passwordCtrl.text.trim(), // Optional
+          "password": _passwordCtrl.text.trim(), 
         },
       );
 

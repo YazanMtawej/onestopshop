@@ -37,7 +37,7 @@ class ServerFailure extends Failure {
         if (dioError.message!.contains('SocketException')) {
           return ServerFailure('No Internet Connection');
         }
-        return ServerFailure('Unexpected Error , try again!');
+        return ServerFailure('Unexpected Error , try again!');  
 
       // ignore: unreachable_switch_default
       default :

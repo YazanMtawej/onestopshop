@@ -29,7 +29,6 @@ class _CustomCardState extends State<CustomCard> {
   Widget build(BuildContext context) {
     return GestureDetector(
       onTap: () {
-        //  Navigator.pushNamed(context, UpdateProductPage.id,arguments: product);
         Get.to(
           () => ProductDetaillsView(),arguments:widget.perfume ,
           duration: kTranstionDuration,
